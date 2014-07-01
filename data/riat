@@ -1,0 +1,21 @@
+#!/bin/bash
+#RIAT utilities script
+
+echo 
+echo "############## RIAT Console ##################"
+echo "** Choose an option to continue:"
+echo -e "\t1) Insert new dataset"
+echo -e "\t2) Say hello2"
+echo -e "\t3) Say hello3"
+read input_variable
+if [ $input_variable -eq 1 ]
+then
+  echo "** Enter absolute path to '.riat' file you want to upload"
+	read dataset_file
+	echo "You entered: '$dataset_file'"
+	
+	
+	
+else
+	echo "Invalid option"
+fi

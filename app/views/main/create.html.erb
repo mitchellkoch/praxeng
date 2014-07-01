@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="jumbotron" id="task_heading">
+		
+		<div class="row">
+			<p>"<%= @current_sentence%>"</p>
+			<h2><small>What others chose:</small></h2>
+		</div>
+		
+		<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+				<% @instance.answers.each do |opt|%>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= @crowd[opt["relation_display_name"]]%>%">
+						    <span class="lbl"><span class="label label-default"><%=@user_resp[opt["relation_display_name"]]%></span> <%= @instance.args[0]["text"]%><%= @instance.args[0]["mention_text"]%> <em><%= opt["relation_display_name"] %></em> <%=@instance.args[1]["text"] %><%= @instance.args[1]["mention_text"]%> (<%= @crowd1[opt["relation_display_name"]]%>/<%= @ann_count%>)</span>
+						  </div>
+						</div>		
+				<% end %>
+					<div class="progress">
+				  	<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: <%= @crowd['none']%>%">
+				    	<span class="lbl"><span class="label label-primary"><%=@user_resp["none"]%></span> None of these (<%= @crowd1["none"]%>/<%= @ann_count%>)</span>
+				  	</div>
+					</div>
+				</div>
+			</div>
+			
+			<p><a href="/main/task" class="btn btn-default">Next <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+	</div>
+</div>
