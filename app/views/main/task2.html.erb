@@ -10,7 +10,7 @@
 		
 		
 		<div class="row">
-			<p><%= @current_sentence%></p>
+			<p id="sentence"><%= @current_sentence%></p>
 			<h2><small>Does the above sentence convey?</small></h2>
 		</div>
 		
@@ -22,7 +22,7 @@
 						<% i=0 %>
 						<% @current_instance.answers.each do |opt|%>
 							<label class="btn btn-default btn-lg btn-block">
-								<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> <em><%= opt["relation_display_name"] %></em> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%>
+								<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"><span id="option"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> <em><%= opt["relation_display_name"] %></em> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span>
 							</label>
 							<% i=i+1 %>
 						<% end %>

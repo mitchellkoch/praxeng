@@ -28,15 +28,41 @@ $primary-color: #428bca;
 }
 
 .caption p{
-	font-size: 150%;
+	font-size: 14px;
 }
 
 .heading{
+	font-size: 20px;
 	color: $primary-color;
 }
 
 .progress {
     position: relative;
+}
+
+@media screen and (max-width: 568px) {
+    #option {
+        font-size: 12px;
+    }
+		#sentence{
+			font-size: 1em;
+		}
+		.heading{
+			font-size: 18px;
+		}
+		.caption p{
+			font-size: 12px;
+		}
+		.thumbnail img { 
+			min-height:50px; 
+			height:60px; 
+		}
+		#uw{
+			height: 14px;
+		}
+		.jumbotron p{
+			font-size: 14px;
+		}
 }
 
 .lbl {
