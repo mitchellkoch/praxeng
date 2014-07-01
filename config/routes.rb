@@ -16,6 +16,8 @@ Rails.application.routes.draw do
    post 'main/create2'
 
   root 'main#welcome'
+  
+  get '*path' => redirect('/')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
