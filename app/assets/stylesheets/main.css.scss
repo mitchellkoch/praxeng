@@ -8,12 +8,17 @@ $primary-color: #428bca;
 	text-align: center;
 	background-color:rgba(255,0,0,0);
 //	border: solid;
-//	padding-top: 10px;
+	padding-top: 10px;
+//	border:solid;
 }
 
 .jumbotron h1{
 	font-family: 'Pacifico', cursive;
 	color: $primary-color;
+}
+
+.modal{
+	text-align: left;
 }
 
 .thumbnail{
@@ -45,7 +50,7 @@ $primary-color: #428bca;
         font-size: 11px;
     }
 		#sentence{
-			font-size: 1em;
+			font-size: 16px;
 		}
 		.heading{
 			font-size: 18px;

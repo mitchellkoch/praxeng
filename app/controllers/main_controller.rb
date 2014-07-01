@@ -8,6 +8,20 @@ class MainController < ApplicationController
     else
       @current_user = User.by_name.key(session.id).first
     end
+    
+    
+    @curr_user = User.by_name.key(session.id).first
+    @current_instance = Question.get("ques-AIDA-YAGO2-DOC10054761.json")
+    doc_name = @current_instance.doc_name
+    current_document = Document.get(doc_name+".json")
+    doc_text = current_document.text
+    doc_sentences = doc_text.split("\n")
+    arg = @current_instance.args[0]
+    sent = arg["sent_idx"]
+    @current_sentence = doc_sentences[sent]
+    
+    
+    
   end
 
   def task
