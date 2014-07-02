@@ -10,7 +10,19 @@
 		
 		
 		<div class="row">
-			<p id="sentence"><%= @current_sentence%></p>
+				<p id="sentence">
+				<% i =0 %>
+				<%@current_sentence.split(" ").length.times do %>
+					<% if (i>=@current_instance.args[0]["sent_tok_span"][0] && i<@current_instance.args[0]["sent_tok_span"][1]) %>
+						<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
+					<%elsif (i>=@current_instance.args[1]["sent_tok_span"][0] && i<@current_instance.args[1]["sent_tok_span"][1])%>
+							<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
+					<%else%>
+						<%= @current_sentence.split(" ")[i]%>
+					<%end%>
+					<% i+= 1 %>
+				<%end%>
+			</p>
 			<h2><small>Does the above sentence convey?</small></h2>
 		</div>
 		
@@ -22,7 +34,7 @@
 						<% i=0 %>
 						<% @current_instance.answers.each do |opt|%>
 							<label class="btn btn-default btn-lg btn-block">
-								<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"><span id="option"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> <em><%= opt["relation_display_name"] %></em> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span>
+								<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"><span id="option"><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span><em><%= opt["relation_display_name"] %></em><span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></span>
 							</label>
 							<% i=i+1 %>
 						<% end %>
