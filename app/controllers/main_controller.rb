@@ -1,16 +1,9 @@
 class MainController < ApplicationController
   def welcome
     session["init"] = true
-    user_count = User.by_name.key(session.id).count
-    if user_count == 0
-      @current_user = User.new(:name => session.id, :src => "Testing")
-      @current_user.save
-    else
-      @current_user = User.by_name.key(session.id).first
-    end
-    
-    
-    @curr_user = User.by_name.key(session.id).first
+
+    @sessionId = session.id
+
     @current_instance = Question.get("ques-AIDA-YAGO2-DOC10054761.json")
     doc_name = @current_instance.doc_name
     current_document = Document.get(doc_name+".json")
@@ -131,7 +124,18 @@ class MainController < ApplicationController
   end
   
   def create2
-    @user = User.get(params[:user_id])
+    
+    sessionId = params[:user_id]
+    @user = nil
+    
+    user_count = User.by_name.key(sessionId).count
+    if user_count == 0
+      @user = User.new(:name => sessionId, :src => "Testing")
+      @user.save
+    else
+      @user = User.by_name.key(session.id).first
+    end
+    
     @instance = Question.get(params[:instance_id])
     doc_name = @instance.doc_name
     current_document = Document.get(doc_name+".json")
