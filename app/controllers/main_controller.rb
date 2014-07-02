@@ -18,9 +18,7 @@ class MainController < ApplicationController
     doc_sentences = doc_text.split("\n")
     arg = @current_instance.args[0]
     sent = arg["sent_idx"]
-    @current_sentence = doc_sentences[sent]
-    
-    
+    @current_sentence = doc_sentences[sent]    
     
   end
 
