@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'main/task'
 
-  get 'main/task2'
+#  get 'main/task2'
   
   get 'main/about'
 
