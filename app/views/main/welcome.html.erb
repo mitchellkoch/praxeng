@@ -22,7 +22,8 @@
 		</div></div></div> -->
 		
 <div class="row">		
-		<div class="row"><p id="sentence">
+		<div class="row">
+			<p id="sentence">
 			<% i =0 %>
 			<%@current_sentence.split(" ").length.times do %>
 				<% if (i>=@current_instance.args[0]["sent_tok_span"][0] && i<@current_instance.args[0]["sent_tok_span"][1]) %>
