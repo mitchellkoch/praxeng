@@ -28,27 +28,50 @@
 //
 // Example:
 // @link-color: #ff0000;
-@navbar-height: 100px;
-@navbar-default-bg: #ffffff;
-
+@link-color: @gray-light;
+@navbar-height: 70px;
+@navbar-default-bg: rgba(255,255,255,0.95);
 body{
 	font-family: 'Open Sans', sans-serif;
-	margin-bottom: 2em;
+	// font-family: 'Montserrat', sans-serif;
+	// padding-top: 70px;
+
 }
+
 .navbar{
-	border: none;
+	margin-top: 10px;
+	margin: 0;
 }
 .navbar-brand{
 	font-family: 'Euphoria Script', cursive;
-	font-size: 40px;
+	font-size: 50px;
+}
+
+#footer_row{
+	padding-left: 5%;
+	padding-right: 5%;
+	background-color: @gray-lighter;
 }
 
 .brand-name{
 	font-family: 'Euphoria Script', cursive;
-	font-size: 150%;
-	margin: 0;
 }
 
 #about-cse-logo{
 	text-align: center;
 }
+
+#eng_color{
+		color: orange;
+}
+
+#footer_section{
+	// margin: 20px;
+}
+
+.container{
+	margin: 0;
+	width: 100%;
+}
+
+.navbar-right > ul > li { float:left; }

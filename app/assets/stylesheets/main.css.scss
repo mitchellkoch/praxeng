@@ -2,19 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$primary-color: #428bca;
+$primary-color:#339999;
 
-.jumbotron{
-	text-align: center;
-	background-color:rgba(255,0,0,0);
-//	border: solid;
-	padding-top: 10px;
-//	border:solid;
+#top_section{
+	background-color: $primary-color;
+	//height: 600px;
+	color: white;
 }
 
-.jumbotron h1{
-	font-family: 'Pacifico', cursive;
-	color: $primary-color;
+#top_section h2{
+	font-family: 'Open Sans', sans-serif; font-weight: 300; 
+}
+
+#middle_section{
+//	height: 600px;
+}
+.jumbotron{
+	text-align: center;
+	background-color:rgba(0,0,0,0);
+}
+
+.jumbotron h2{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	color: orange;
 }
 
 .modal{
@@ -36,9 +47,13 @@ $primary-color: #428bca;
 	font-size: 14px;
 }
 
+#sentence{
+	font-family: 'Droid Serif', serif;
+}
+
 .heading{
-	font-size: 20px;
-	color: $primary-color;
+	font-size: 15px;
+	font-weight: 700;
 }
 
 .progress {
@@ -51,9 +66,6 @@ $primary-color: #428bca;
     }
 		#sentence{
 			font-size: 16px;
-		}
-		.heading{
-			font-size: 18px;
 		}
 		.caption p{
 			font-size: 12px;
@@ -82,9 +94,9 @@ $primary-color: #428bca;
 }
 
 #arg1{
-	color: #038c8c;
+	color: red;
 }
 
 #arg2{
-	color: #89a65d;
+	color: blue;
 }

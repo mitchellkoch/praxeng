@@ -1,154 +1,56 @@
-
-<div class="row">
-	<div class="col-lg-12">
-		<div class="jumbotron">
-				<!-- <p><%= @current_user.name %></p> -->
-				 <h1>Practice english comprehension</h1>
-				 <h1><small>It's free, try it out!<small></h1>
-					 <br><br>
-		</div>	
+<div class="row" id="top_section">
+	<div class="col-sm-6">
+		<h3>Practice English Comprehension</h3>
 	</div>
-	
+	<div class="col-sm-6">
+		
+	</div>
 </div>
 
-<div class="row">
-	<div class="jumbotron" id="task_heading">
-		
-		<!-- <div class="row">
-		<div class = "col-lg-6 col-lg-offset-3">
-		<div class="alert alert-warning alert-dismissable fade in">
-		  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		  <strong>Tip #1: </strong> Select all options that you think are correct.
-		</div></div></div> -->
-		
-<div class="row">		
-		<div class="row">
-			<p id="sentence">
-			<% i =0 %>
-			<%@current_sentence.split(" ").length.times do %>
-				<% if (i>=@current_instance.args[0]["sent_tok_span"][0] && i<@current_instance.args[0]["sent_tok_span"][1]) %>
-					<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
-				<%elsif (i>=@current_instance.args[1]["sent_tok_span"][0] && i<@current_instance.args[1]["sent_tok_span"][1])%>
-						<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
-				<%else%>
-					<%= @current_sentence.split(" ")[i]%>
-				<%end%>
-				<% i+= 1 %>
-			<%end%>
-		</p>
-			<h2><small>Does the above sentence convey?</small></h2>
-			<br>
-		</div>
-		
-		<div class="col-md-6 col-md-offset-3">
-			<form action='/main/create2' role="form" method="post">
-			  <div class="form-group">
-					<div class="row">
-						<div class="btn-toolbar-vertical" data-toggle="buttons">
-						<% i=0 %>
-						<% @current_instance.answers.each do |opt|%>
-							<label class="btn btn-default btn-lg btn-block">
-								<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"><span id="option"><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span><em><%= opt["relation_display_name"] %></em><span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></span>
-							</label>
-							<% i=i+1 %>
-						<% end %>
-						</div>
-					</div>
-	
-					<div class="row">
-						<div class="btn-toolbar">
-							<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
-							<button type="button" class="btn btn-success btn-lg btn-block" name="option" value="submit" data-toggle="modal" data-target="#myModal" >Submit</button>	
-							<button type="button" class="btn btn-danger btn-lg btn-block" name="option" value="none" data-toggle="modal" data-target="#myModal">None of these</button>
-							
-						</div>		
-					</div>
-				</div>
-			
-				<input type="hidden" name="instance_id" value= "<%= @current_instance.id %>">
-				<input type="hidden" name="user_id" value= "<%= @curr_user.id %>">
-				
-				
-				
-				
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				        <h4 class="modal-title" id="myModalLabel"><span class="brand-name">PraxEng</span>: Practice English Comprehension with Others</h4>
-				      </div>
-				      <div class="modal-body">
-								<h4><small>Please read the following information carefully before proceeding:</small></h4>
-								<h4><small>Why we are doing this research: </small></h4>
-								We are trying to understand how people wanting to learn and practice their English skills can help in the otherwise lengthy and expensive process of annotating relations in text.
-								<h4><small>What you will have to do: </small></h4>
-								You will be asked to read and understand an English sentence and then select the facts conveyed by that sentence. Your participation in this study is completely voluntary, and you may refuse to participate or withdraw from the study without penalty or loss of benefits to which you may otherwise be entitled.
-								<h4><small>Potential risks:</small></h4>
-								There are no risks anticipated in taking part in this study and you are free to leave at any time without penalty or loss of benefits to which you are otherwise entitled.
-								<h4><small>Privacy: </small></h4>
-								Your responses will be kept anonymous. We do not collect any information that could be used to directly establish your identity.
-								<h4><small>To contact the researcher: </small></h4>
-								If you have questions or concerns about this research, please contact <a href="http://www.cs.washington.edu/people/faculty/weld/ target="_blank"">Prof. Daniel Weld</a>, Computer Science & Engineering, University of Washington, Box 352350, Seattle WA 98195-2350, <a href="mailto:weld@cs.washington.edu?Subject=[PraxEng]: " target="_top">weld@cs.washington.edu</a><br><br>
-
-								Whom to contact about your rights in this research, for questions, concerns, suggestions, or complaints that are not being addressed by the researcher, or research-related harm: Human Subjects Division, University of Washington, Box 359470, Seattle, Washington 98195, Telephone:  (206) 543-0098<br><br>
-
-								Please print or save a copy of this page for your records.<br><br>
-
-								<em>By clicking on Accept you confirm that you are above the age of 18 and that you have read and understood the above and agree to take part in this research. Your participation is voluntary and you are free to leave the experiment at any time by simply closing the web browser.</em>
-        
-				      </div>
-				      <div class="modal-footer">
-				        <button type="submit" class="btn btn-default" data-dismiss="modal">Deny</button>
-				        <button type="submit" class="btn btn-primary">Accept</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-				
-				
-				
-				
-			</form>
-		</div>
-</div>
-</div>
-
-	<div class="row">
-	  <div class="col-md-3">
+<div class="row" id="middle_section">
+	<div class=jumbotron>
+		<h2>What is PraxEng ?</h2>
+		<p>PraxEng is a <strong>free</strong> website to practice English comprehension. To learn how we do it <a href="/main/about">click here</a>.</p>
+	</div>
+	<div class="col-md-10 col-md-offset-1">
+	  <div class="col-md-4">
 	    <div class="thumbnail">
 	      <img src="/assets/images/practice.jpg" alt="...">
 	      <div class="caption">
-	        <h3 class="heading">Practice english</h3>
-	        <p><span class="brand-name">PraxEng</span>'s questions are one of the best materials to improve your English skills.</p>
+	        <h3 class="heading">PRACTICE ENGLISH</h3>
+	        <p>Practice quality questions and improve your English comprehension skills.</p>
 	      </div>
 	    </div>
 	  </div>
-	  <div class="col-md-3">
+	
+	  <!-- <div class="col-md-4">
 	    <div class="thumbnail">
 	      <img src="/assets/images/noads.png" alt="...">
 	      <div class="caption">
-	        <h3 class="heading">No fees, no ads!</h3>
-	        <p><span class="brand-name">PraxEng</span> does not require you to login, has no ads and no gimmicks. Its a free service just for fun.</p>
+	        <h3 class="heading">No fees</h3>
+	        <p>No login required, no ads and no gimmicks. Its a free service just for fun.</p>
 	      </div>
 	    </div>
-	  </div>
-	  <div class="col-md-3">
+	  </div> -->
+	
+	  <div class="col-md-4">
 	    <div class="thumbnail">
 	      <img src= "/assets/images/learn-facts.png">
 	      <div class="caption">
-	        <h3 class="heading">Learn interesting facts</h3>
-	        <p><span class="brand-name">PraxEng</span> tests you on interesting news stories. So you will always learn something new.</p>
+	        <h3 class="heading">LEARN</h3>
+	        <p>Practice on interesting news stories and learn new things.</p>
 	      </div>
 	    </div>
 	  </div>
-	  <div class="col-md-3">
+	
+	  <div class="col-md-4">
 	    <div class="thumbnail">
 	      <img src="/assets/images/game.png" alt="...">
 	      <div class="caption">
-	        <h3 class="heading">Learn with others</h3>
+	        <h3 class="heading">LEARN WITH OTHERS</h3>
 	        <p>Compare yourself against your friends and other people all around the world.</p>
 	      </div>
 	    </div>
+		</div>
 	</div>
+</div>
