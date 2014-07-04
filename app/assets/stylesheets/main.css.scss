@@ -2,27 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$primary-color:#339999;
+$primary-color:#038c8c;
 
-#top_section{
-	background-color: $primary-color;
-	//height: 600px;
-	color: white;
+.btn-toolbar-vertical{
+	margin-bottom: 10px;
 }
 
-#top_section h2{
-	font-family: 'Open Sans', sans-serif; font-weight: 300; 
+.jumbotron{
+	//padding-bottom: 0;
+}
+
+#top_section{
+	color: white;
+	background-color: $primary-color;
+	height: 500px;
+}
+
+#instruction{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+}
+
+#top_section h1, #top_section h2{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
 
 #middle_section{
 //	height: 600px;
 }
+
 .jumbotron{
 	text-align: center;
 	background-color:rgba(0,0,0,0);
 }
 
-.jumbotron h2{
+#middle_section h2, #about h2{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	color: orange;
@@ -58,28 +73,6 @@ $primary-color:#339999;
 
 .progress {
     position: relative;
-}
-
-@media screen and (max-width: 568px) {
-    #option {
-        font-size: 11px;
-    }
-		#sentence{
-			font-size: 16px;
-		}
-		.caption p{
-			font-size: 12px;
-		}
-		.thumbnail img { 
-			min-height:50px; 
-			height:60px; 
-		}
-		#uw{
-			height: 14px;
-		}
-		.jumbotron p{
-			font-size: 14px;
-		}
 }
 
 .lbl {

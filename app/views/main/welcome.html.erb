@@ -1,39 +1,86 @@
-<div class="row" id="top_section">
-	<div class="col-sm-6">
-		<h3>Practice English Comprehension</h3>
+<div class="row" id="top_section">	
+	<div class="jumbotron">
+		<br><br><br>
+		<h1>Practice English Comprehension</h1>
+		<h1>Free!</h2>
+		<br>
+		<h3>Try out the example below</h3>
+		<h3><span class="glyphicon glyphicon-arrow-down"></span></h3>
 	</div>
-	<div class="col-sm-6">
+</div>
+
+
+
+
+
+
+<div class="row" id="example_question">	
+	<div class="jumbotron">
+		
+		<p id="question">
+			<% i =0 %>		
+			<%@current_sentence.split(" ").length.times do %>
+				<% if (i>=@current_instance.args[0]["sent_tok_span"][0] && i<@current_instance.args[0]["sent_tok_span"][1]) %>
+					<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
+				<%elsif (i>=@current_instance.args[1]["sent_tok_span"][0] && i<@current_instance.args[1]["sent_tok_span"][1])%>
+						<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
+				<%else%>
+					<%= @current_sentence.split(" ")[i]%>
+				<%end%>
+				<% i+= 1 %>
+			<%end%>
+		</p>
+		
+		<p id="instruction">Complete the following sentence  with all possible options below it:</p>
+		
+		<p><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span>....................<span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
+		
+		
+		<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical" data-toggle="buttons">
+			<% i=0 %>
+			<% @current_instance.answers.each do |opt|%>
+				<label class="btn btn-default btn-lg btn-block">
+					<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"><span id="option"><em><%= opt["relation_display_name"] %></em></span>
+				</label>
+				<% i=i+1 %>
+			<% end %>
+		</div>
+
+		<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical">
+			<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
+			<button type="button" class="btn btn-success btn-lg btn-block" name="option" value="submit" data-toggle="modal" data-target="#myModal" >Submit</button>	
+			<button type="button" class="btn btn-danger btn-lg btn-block" name="option" value="none" data-toggle="modal" data-target="#myModal">None of these</button>		
+		</div>
 		
 	</div>
 </div>
+
+
+
+
+<hr>
+
+
+
+
 
 <div class="row" id="middle_section">
 	<div class=jumbotron>
 		<h2>What is PraxEng ?</h2>
 		<p>PraxEng is a <strong>free</strong> website to practice English comprehension. To learn how we do it <a href="/main/about">click here</a>.</p>
 	</div>
-	<div class="col-md-10 col-md-offset-1">
-	  <div class="col-md-4">
+	<div class="col-sm-10 col-sm-offset-1">
+	  <div class="col-sm-4">
 	    <div class="thumbnail">
 	      <img src="/assets/images/practice.jpg" alt="...">
 	      <div class="caption">
-	        <h3 class="heading">PRACTICE ENGLISH</h3>
+	        <h3 class="heading">PRACTICE</h3>
 	        <p>Practice quality questions and improve your English comprehension skills.</p>
 	      </div>
 	    </div>
 	  </div>
-	
-	  <!-- <div class="col-md-4">
-	    <div class="thumbnail">
-	      <img src="/assets/images/noads.png" alt="...">
-	      <div class="caption">
-	        <h3 class="heading">No fees</h3>
-	        <p>No login required, no ads and no gimmicks. Its a free service just for fun.</p>
-	      </div>
-	    </div>
-	  </div> -->
-	
-	  <div class="col-md-4">
+		
+	  <div class="col-sm-4">
 	    <div class="thumbnail">
 	      <img src= "/assets/images/learn-facts.png">
 	      <div class="caption">
@@ -43,7 +90,7 @@
 	    </div>
 	  </div>
 	
-	  <div class="col-md-4">
+	  <div class="col-sm-4">
 	    <div class="thumbnail">
 	      <img src="/assets/images/game.png" alt="...">
 	      <div class="caption">

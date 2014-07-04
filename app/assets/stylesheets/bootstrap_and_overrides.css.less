@@ -29,17 +29,14 @@
 // Example:
 // @link-color: #ff0000;
 @link-color: @gray-light;
-@navbar-height: 70px;
+@navbar-height: 80px;
 @navbar-default-bg: rgba(255,255,255,0.95);
 body{
 	font-family: 'Open Sans', sans-serif;
-	// font-family: 'Montserrat', sans-serif;
-	// padding-top: 70px;
-
 }
 
 .navbar{
-	margin-top: 10px;
+	// margin-top: 10px;
 	margin: 0;
 }
 .navbar-brand{
@@ -65,6 +62,10 @@ body{
 		color: orange;
 }
 
+#prax_color{
+	color: #038c8c;
+}
+
 #footer_section{
 	// margin: 20px;
 }
@@ -75,3 +76,26 @@ body{
 }
 
 .navbar-right > ul > li { float:left; }
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: white;
+  background-color:  orange;
+  border-color: #adadad;
+}
+
+@media (max-width: @screen-xs-max) {
+	
+	body{
+		.jumbotron p{
+			font-size: 14px;
+		}
+	}	
+}
+
+#social a{
+	font-size: 24px;
+}
