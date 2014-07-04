@@ -31,27 +31,68 @@
 			<%end%>
 		</p>
 		
-		<p id="instruction">Complete the following sentence  with all possible options below it:</p>
+		<p id="instruction">Select all options that can complete the following sentence:</p>
 		
 		<p><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span>....................<span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
 		
-		
-		<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical" data-toggle="buttons">
-			<% i=0 %>
-			<% @current_instance.answers.each do |opt|%>
-				<label class="btn btn-default btn-lg btn-block">
-					<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"><span id="option"><em><%= opt["relation_display_name"] %></em></span>
-				</label>
-				<% i=i+1 %>
-			<% end %>
-		</div>
+		<form action='/main/create2' role="form" method="post">
+		  <div class="form-group">
+				<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical" data-toggle="buttons">
+					<% i=0 %>
+					<% @current_instance.answers.each do |opt|%>
+						<label class="btn btn-default btn-lg btn-block">
+							<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"><span id="option"><em><%= opt["relation_display_name"] %></em></span>
+						</label>
+						<% i=i+1 %>
+					<% end %>
+				</div>
 
-		<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical">
-			<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
-			<button type="button" class="btn btn-success btn-lg btn-block" name="option" value="submit" data-toggle="modal" data-target="#myModal" >Submit</button>	
-			<button type="button" class="btn btn-danger btn-lg btn-block" name="option" value="none" data-toggle="modal" data-target="#myModal">None of these</button>		
-		</div>
+				<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical">
+					<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
+					<button type="button" class="btn btn-success btn-lg btn-block" name="option" value="submit" data-toggle="modal" data-target="#myModal" >Submit</button>	
+					<button type="button" class="btn btn-danger btn-lg btn-block" name="option" value="none" data-toggle="modal" data-target="#myModal">None of these</button>		
+				</div>
 		
+				<input type="hidden" name="instance_id" value= "<%= @current_instance.id %>">
+				<input type="hidden" name="user_id" value= "<%= @curr_user.id %>">
+		
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title" id="myModalLabel">PraxEng: Practice English Comprehension with Others</h4>
+				      </div>
+				      <div class="modal-body">
+								<h4><small>Please read the following information carefully before proceeding:</small></h4>
+								<h4><small>Why we are doing this research: </small></h4>
+								We are trying to understand how people wanting to learn and practice their English skills can help in the otherwise lengthy and expensive process of annotating relations in text.
+								<h4><small>What you will have to do: </small></h4>
+								You will be asked to read and understand an English sentence and then select the facts conveyed by that sentence. Your participation in this study is completely voluntary, and you may refuse to participate or withdraw from the study without penalty or loss of benefits to which you may otherwise be entitled.
+								<h4><small>Potential risks:</small></h4>
+								There are no risks anticipated in taking part in this study and you are free to leave at any time without penalty or loss of benefits to which you are otherwise entitled.
+								<h4><small>Privacy: </small></h4>
+								Your responses will be kept anonymous. We do not collect any information that could be used to directly establish your identity.
+								<h4><small>To contact the researcher: </small></h4>
+								If you have questions or concerns about this research, please contact <a href="http://www.cs.washington.edu/people/faculty/weld/ target="_blank"">Prof. Daniel Weld</a>, Computer Science & Engineering, University of Washington, Box 352350, Seattle WA 98195-2350, <a href="mailto:weld@cs.washington.edu?Subject=[PraxEng]: " target="_top">weld@cs.washington.edu</a><br><br>
+
+								Whom to contact about your rights in this research, for questions, concerns, suggestions, or complaints that are not being addressed by the researcher, or research-related harm: Human Subjects Division, University of Washington, Box 359470, Seattle, Washington 98195, Telephone:  (206) 543-0098<br><br>
+
+								Please print or save a copy of this page for your records.<br><br>
+
+								<em>By clicking on Accept you confirm that you are above the age of 18 and that you have read and understood the above and agree to take part in this research. Your participation is voluntary and you are free to leave the experiment at any time by simply closing the web browser.</em>
+    
+				      </div>
+				      <div class="modal-footer">
+				        <button type="submit" class="btn btn-default" data-dismiss="modal">Deny</button>
+				        <button type="submit" class="btn btn-primary">Accept</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
 
@@ -67,7 +108,7 @@
 <div class="row" id="middle_section">
 	<div class=jumbotron>
 		<h2>What is PraxEng ?</h2>
-		<p>PraxEng is a <strong>free</strong> website to practice English comprehension. To learn how we do it <a href="/main/about">click here</a>.</p>
+		<p>PraxEng is a <strong>free</strong> website to practice English comprehension. It has <strong>no ads</strong> and never will. To learn how we make that possible <a href="/main/about">click here</a>.</p>
 	</div>
 	<div class="col-sm-10 col-sm-offset-1">
 	  <div class="col-sm-4">

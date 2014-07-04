@@ -39,12 +39,14 @@
     <%= javascript_include_tag "application" %>
 		<script src="assets/autohiding.js"></script>
   </head>
-  <body>		
-		<!-- <div class="container"> -->
+  <body>	
+		<div id="container">			
+
+
 			<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		  	<div class="container-fluid" id="navbar_top">
-		    	<!-- Brand and toggle get grouped for better mobile display -->
-		    	<div class="navbar-header">
+		    	
+					<div class="navbar-header">
 		      	<button type="button" class="navbar-toggle" data-toggle="collapse"	data-target="#bs-example-navbar-collapse-1">
 		        	<span class="sr-only">Toggle navigation</span>
 		        	<span class="icon-bar"></span>
@@ -54,42 +56,41 @@
 		      	<a class="navbar-brand" href="/main/welcome"><span id="prax_color">Prax</span><span id="eng_color">Eng</span></a>
 		    	</div>
 			
-		    	<!-- Collect the nav links, forms, and other content for toggling -->
+		
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav navbar-right">
 		        	<li><a href="/main/about">About us</a></li>
 		        	<li><a href="mailto:weld@cs.washington.edu?Subject=[PraxEng]: " target="_top">Contact us</a></li>
-		        	<!-- <li><a href="#">Privacy</a></li> -->
 		      	</ul>
-		    	</div><!-- /.navbar-collapse -->
+		    	</div>
 					
-		 	</div><!-- /.container-fluid -->
-		</nav>
-	<!-- </div> -->
-	
-	<div class="container">
-		
-		
-    <%= yield %>
-  	
+		 		</div>
+			</nav>
 
-		<div class="row" id="footer_row">
-		<footer id="footer" class="navbar navbar-static-bottom" role="navigation">
-	    <div class="navbar-left">
-	      <a class="navbar-brand" href="/main/welcome">PraxEng</a>
-	    </div>
-			
-	    <div class="navbar-right pull-right" id="social" >	 
-      	<ul class="nav navbar-nav navbar-right">
-        	<li><a class="footer-nav__link footer-nav__link--icon footer-nav__link--icon-facebook" href="http://facebook.com/praxeng" target="_blank" title="Facebook Page"><i class="fa fa-facebook"></i></a></li>
-        	<li><a class="footer-nav__link footer-nav__link--icon footer-nav__link--icon-twitter" href="http://twitter.com/praxeng" target="_blank" title="Twitter Profile"><i class="fa fa-twitter"></i></a></li>
-        	<!-- <li><a href="#">Privacy</a></li> -->
-      	</ul>      
-	               
-	    </div>
-		</footer>
-	</div>
-	</div>
+		<div class="container" id="body">
+	    <%= yield%>	
+		</div>
 	
+	<!-- <div class="container" id="footer">
+		<div class="row"> -->
+			<footer id="footer" class="navbar navbar-static-bottom" role="navigation">
+		  	<div class="container-fluid">
+				<div class="navbar-left">
+		    	<a class="navbar-brand" href="/main/welcome">PraxEng</a>
+		   	</div>
+		
+		  	<div class="navbar-right pull-right" id="social" >	 
+	      	<ul class="nav navbar-nav navbar-right">
+	       		<li><a class="footer-nav__link footer-nav__link--icon footer-nav__link--icon-facebook" href="http://facebook.com/praxeng" target="_blank" title="Facebook Page"><i class="fa fa-facebook"></i></a></li>
+	       	 	<li><a class="footer-nav__link footer-nav__link--icon footer-nav__link--icon-twitter" href="http://twitter.com/praxeng" target="_blank" title="Twitter Profile"><i class="fa fa-twitter"></i></a></li>
+	       	 	<!-- <li><a href="#">Privacy</a></li> -->
+	      	</ul>       
+		   	</div>
+			</div>
+			</footer>
+		<!-- </div>
+	</div>	 -->
+
+</div>
 </body>
 </html>

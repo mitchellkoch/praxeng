@@ -1,6 +1,5 @@
 @import "twitter/bootstrap/bootstrap";
 
-
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
 @iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
@@ -31,6 +30,35 @@
 @link-color: @gray-light;
 @navbar-height: 80px;
 @navbar-default-bg: rgba(255,255,255,0.95);
+
+html,body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+#header {
+   background:#ff0;
+   padding:10px;
+}
+
+#body {
+   // padding:10px;
+   padding-bottom:80px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:70px;   /* Height of the footer */
+   background:#6cf;
+}
+
 body{
 	font-family: 'Open Sans', sans-serif;
 }
@@ -44,10 +72,18 @@ body{
 	font-size: 50px;
 }
 
-#footer_row{
+#footer{
+	//   position:absolute;
+	//   bottom:0;
+	//   width:100%;
+	// margin-left: auto;
+	// margin-right: auto;
 	padding-left: 5%;
 	padding-right: 5%;
 	background-color: @gray-lighter;
+	width: 100%;
+	// border: solid;
+	// margin: 0;
 }
 
 .brand-name{
@@ -64,10 +100,6 @@ body{
 
 #prax_color{
 	color: #038c8c;
-}
-
-#footer_section{
-	// margin: 20px;
 }
 
 .container{
