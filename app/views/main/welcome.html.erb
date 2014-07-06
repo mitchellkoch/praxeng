@@ -2,21 +2,20 @@
 	<div class="jumbotron">
 		<br><br><br>
 		<h1>Practice English Comprehension</h1>
-		<h1>Free!</h2>
+		<h1>free!</h2>
 		<br>
 		<h3>Try out the example below</h3>
-		<h3><span class="glyphicon glyphicon-arrow-down"></span></h3>
+		<br>
+		<h3><button class="btn btn-primary btn-lg" id="scroll">
+		<span class="glyphicon glyphicon-arrow-down"></span></button></h3>
 	</div>
 </div>
 
 
 
 
-
-
 <div class="row" id="example_question">	
-	<div class="jumbotron">
-		
+	<div class="jumbotron">	
 		<p id="question">
 			<% i =0 %>		
 			<%@current_sentence.split(" ").length.times do %>
@@ -33,15 +32,15 @@
 		
 		<p id="instruction">Select all options that can complete the following sentence:</p>
 		
-		<p><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span>....................<span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
+		<p><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span>     <span style="font-size: 5px">.............................................................................................................................................................</span>    <span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
 		
-		<form action='/main/create2' role="form" method="post">
+		<form action='/english-comprehension-practice/response' role="form" method="post">
 		  <div class="form-group">
 				<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical" data-toggle="buttons">
 					<% i=0 %>
 					<% @current_instance.answers.each do |opt|%>
-						<label class="btn btn-default btn-lg btn-block">
-							<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>"><span id="option"><em><%= opt["relation_display_name"] %></em></span>
+						<label class="btn btn-default btn-lg btn-block" id="checkboxes">
+							<input type="checkbox" name="response[r<%=i%>]" value="<%=opt["relation_display_name"]%>" /><span id="option"><em><%= opt["relation_display_name"] %></em></span>
 						</label>
 						<% i=i+1 %>
 					<% end %>
@@ -97,14 +96,6 @@
 </div>
 
 
-
-
-<hr>
-
-
-
-
-
 <div class="row" id="middle_section">
 	<div class=jumbotron>
 		<h2>What is PraxEng ?</h2>
@@ -113,10 +104,10 @@
 	<div class="col-sm-10 col-sm-offset-1">
 	  <div class="col-sm-4">
 	    <div class="thumbnail">
-	      <img src="/assets/images/practice.jpg" alt="...">
+	      <img src="/assets/images/practice.png" alt="...">
 	      <div class="caption">
 	        <h3 class="heading">PRACTICE</h3>
-	        <p>Practice quality questions and improve your English comprehension skills.</p>
+	        <p>PraxEng helps you improve your English comprehension and reading skills.</p>
 	      </div>
 	    </div>
 	  </div>
@@ -126,7 +117,7 @@
 	      <img src= "/assets/images/learn-facts.png">
 	      <div class="caption">
 	        <h3 class="heading">LEARN</h3>
-	        <p>Practice on interesting news stories and learn new things.</p>
+	        <p>Practice on interesting news stories and learn new facts.</p>
 	      </div>
 	    </div>
 	  </div>

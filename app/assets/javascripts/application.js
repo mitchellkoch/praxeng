@@ -15,7 +15,3 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-
-${"#option"}.split(/(?=[A-Z])/).map(function(s) {
-    return s.toLowerCase();
-});

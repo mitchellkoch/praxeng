@@ -1,19 +1,9 @@
 Rails.application.routes.draw do
   
-  get 'memorytest/welcome'
-  
-  get 'main/welcome'
-
-  get 'main/task'
-
-  # get 'main/task2'
-  
-  get 'main/about'
-
-  get 'main/privacy'
-
-  post 'main/create'
-   post 'main/create2'
+  get '/' => "main#welcome"
+  get '/about' => "main#about" 
+  get '/english-comprehension-practice' => "main#task"
+  post '/english-comprehension-practice/response' => "main#create"
 
   root 'main#welcome'
   

@@ -15,7 +15,7 @@ $primary-color:#038c8c;
 #top_section{
 	color: white;
 	background-color: $primary-color;
-	height: 500px;
+//	height: 500px;
 }
 
 #instruction{
@@ -29,6 +29,8 @@ $primary-color:#038c8c;
 }
 
 #middle_section{
+	margin-top: 20px;
+	background-color: lighten(#000, 93.5%);
 //	height: 600px;
 }
 
@@ -48,8 +50,9 @@ $primary-color:#038c8c;
 }
 
 .thumbnail{
+	background-color: lighten(#000, 93.5%);
 	text-align: center;
-	background-color: white;
+//	background-color: white;
 	border: none;
 }
 
@@ -93,3 +96,5 @@ $primary-color:#038c8c;
 #arg2{
 	color: blue;
 }
+
+:focus {outline:none;}

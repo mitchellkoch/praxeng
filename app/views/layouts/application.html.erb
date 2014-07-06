@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href='http://fonts.googleapis.com/css?family=Euphoria+Script' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <title><%= content_for?(:title) ? yield(:title) : "PraxEng: Practice English Comprehension with Others" %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -37,7 +34,26 @@
 		<link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
 
     <%= javascript_include_tag "application" %>
-		<script src="assets/autohiding.js"></script>
+		
+		<script>
+		
+		$(document).on('click', '#checkboxes', function(){
+				//alert("hi");
+				$(this).blur();
+			});
+		
+			$(document).on('click', '#option', function(){
+					//alert("hi2");
+				});
+		
+		$(document).on('click', '#scroll', function(){
+			        $('html, body').animate({
+			            scrollTop: $("#example_question").offset().top
+			        }, 1000);
+							$(this).blur();
+			});
+		</script>
+				
   </head>
   <body>	
 		<div id="container">			
@@ -53,13 +69,13 @@
 		        	<span class="icon-bar"></span>
 		        	<span class="icon-bar"></span>
 		      	</button>
-		      	<a class="navbar-brand" href="/main/welcome"><span id="prax_color">Prax</span><span id="eng_color">Eng</span></a>
+		      	<a class="navbar-brand" href="/"><span id="prax_color">Prax</span><span id="eng_color">Eng</span></a>
 		    	</div>
 			
 		
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav navbar-right">
-		        	<li><a href="/main/about">About us</a></li>
+		        	<li><a href="/about">About us</a></li>
 		        	<li><a href="mailto:weld@cs.washington.edu?Subject=[PraxEng]: " target="_top">Contact us</a></li>
 		      	</ul>
 		    	</div>
@@ -76,7 +92,7 @@
 			<footer id="footer" class="navbar navbar-static-bottom" role="navigation">
 		  	<div class="container-fluid">
 				<div class="navbar-left">
-		    	<a class="navbar-brand" href="/main/welcome">PraxEng</a>
+		    	<a class="navbar-brand" href="/">PraxEng</a>
 		   	</div>
 		
 		  	<div class="navbar-right pull-right" id="social" >	 

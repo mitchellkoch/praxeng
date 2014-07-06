@@ -27,7 +27,7 @@
 //
 // Example:
 // @link-color: #ff0000;
-@link-color: @gray-light;
+// @link-color: @gray-light;
 @navbar-height: 80px;
 @navbar-default-bg: rgba(255,255,255,0.95);
 
@@ -82,6 +82,7 @@ body{
 	padding-right: 5%;
 	background-color: @gray-lighter;
 	width: 100%;
+	border-top: solid 1px @gray-light; 
 	// border: solid;
 	// margin: 0;
 }
@@ -109,7 +110,12 @@ body{
 
 .navbar-right > ul > li { float:left; }
 
-.btn-default:hover,
+// 
+.btn-default:hover{
+	background-color: white;
+}
+
+
 .btn-default:focus,
 .btn-default:active,
 .btn-default.active,
@@ -118,6 +124,10 @@ body{
   background-color:  orange;
   border-color: #adadad;
 }
+
+
+
+
 
 @media (max-width: @screen-xs-max) {
 	
@@ -131,3 +141,4 @@ body{
 #social a{
 	font-size: 24px;
 }
+
