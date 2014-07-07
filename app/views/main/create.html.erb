@@ -3,7 +3,7 @@
 	<p> <%=@message%> <a data-toggle="modal" data-target="#details">Click to view details</a></p>
 	<p>
 		<span class="label label-success">PROGRESS: <%= @num_questions %>/<%=@total_questions%></span>
-		<span class="label label-info">CORRECT: <%= @num_correct %>/<%= @num_question%></span>
+		
 	</p>
 </div>
 </div>
@@ -45,30 +45,30 @@
 				<table class="table  table-bordered table-condensed">
 					<tr>
 						<th>Option</th>
-						<th>Correct Answer</th>
+						<!-- <th>Correct Answer</th> -->
 						<th>Your response</th>
 						<th>Votes</th>
 					</tr>
 					<% @instance.answers.each do |opt|%>
 						<tr>
 							<td><span id="option"><span id="arg1"><%= @instance.args[0]["text"]%><%= @instance.args[0]["mention_text"]%></span> <em><%= opt["relation_display_name"] %></em> <span id="arg2"><%=@instance.args[1]["text"] %><%= @instance.args[1]["mention_text"]%></span></td>
-							<td><span class="glyphicon glyphicon-ok"></span></td>
+							<!-- <td><span class="glyphicon glyphicon-ok"></span></td> -->
 							<td><span class="label label-primary"><%=@user_resp[opt["relation_display_name"]]%></span></td>
 							<td><%= @crowd1[opt["relation_display_name"]]%>/<%= @ann_count%></td>
 						</tr>
 					<% end %>
 					<tr>
 						<td>None of these </td>
-						<td><span class="glyphicon glyphicon-ok"></span></td>
+						<!-- <td><span class="glyphicon glyphicon-ok"></span></td> -->
 						<td><span class="label label-primary"><%=@user_resp["none"]%></span></td>
 						<td><%= @crowd1["none"]%>/<%= @ann_count%></td>
 					</tr>
 				</table>
 				
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Challenge Answer</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
