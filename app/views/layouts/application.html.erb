@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href='http://fonts.googleapis.com/css?family=Euphoria+Script' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
-    <title><%= content_for?(:title) ? yield(:title) : "PraxEng: Practice English Comprehension with Others" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "PraxEng: Practice English Comprehension" %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", :media => "all" %>
 		
@@ -56,6 +56,15 @@
 				
   </head>
   <body>	
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
 		<div id="container">			
 
 
@@ -75,7 +84,7 @@
 		
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav navbar-right">
-		        	<li><a href="/about">About us</a></li>
+		        	<li><a href="/about" title="About Us">About us</a></li>
 		        	<li><a href="mailto:weld@cs.washington.edu?Subject=[PraxEng]: " target="_top">Contact us</a></li>
 		      	</ul>
 		    	</div>
@@ -90,7 +99,7 @@
 	<!-- <div class="container" id="footer">
 		<div class="row"> -->
 			<footer id="footer" class="navbar navbar-static-bottom" role="navigation">
-		  	<div class="container-fluid">
+		  	<div class="container">
 				<div class="navbar-left">
 		    	<a class="navbar-brand" href="/">PraxEng</a>
 		   	</div>

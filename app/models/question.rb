@@ -4,7 +4,7 @@ class Question < CouchRest::Model::Base
   property :doc_name, String
   
   design do
-    view :by_id
+    view :by_doc_name
   end
   
 end

@@ -9,13 +9,15 @@ $primary-color:#038c8c;
 }
 
 .jumbotron{
-	//padding-bottom: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 #top_section{
-	color: white;
-	background-color: $primary-color;
-//	height: 500px;
+	color: $primary-color;
+	background-color: #C8E8E4;
+//	height: 600px;
+padding: 20px;
 }
 
 #instruction{
@@ -26,6 +28,11 @@ $primary-color:#038c8c;
 #top_section h1, #top_section h2{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
+}
+
+.btn-toolbar-vertical{
+//	border: solid;
+	padding: 10px;
 }
 
 #middle_section{
@@ -96,5 +103,27 @@ $primary-color:#038c8c;
 #arg2{
 	color: blue;
 }
+#notif_row{
+	margin-top: 5px;
+//	border: solid;
+}
 
-:focus {outline:none;}
+#notif{
+	text-align: center;
+	border: 1px solid;
+	padding: 15px;
+	background-color: #C8E8E4;
+	margin-top: 20px;
+}
+
+.table{
+	text-align: center;
+}
+
+#fbModal{
+	text-align: center;
+}
+
+#fbModal h4{
+	color: $primary-color;
+}

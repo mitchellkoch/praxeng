@@ -1,21 +1,20 @@
 <div class="row" id="top_section">	
 	<div class="jumbotron">
-		<br><br><br>
 		<h1>Practice English Comprehension</h1>
-		<h1>free!</h2>
-		<br>
-		<h3>Try out the example below</h3>
-		<br>
-		<h3><button class="btn btn-primary btn-lg" id="scroll">
-		<span class="glyphicon glyphicon-arrow-down"></span></button></h3>
+		<h1>Free!</h1>
+			<br></br><br>
+			<% if @returning%>
+			<p>Click <a href="/english-comprehension-practice">here</a> to continue where you left.</p>
+			<%end%>
+		<button class="btn btn-primary btn-lg" id="scroll">
+		<!-- <span class="glyphicon glyphicon-arrow-down"></span> -->Try out the example below</button>
+		<br><br><br>
 	</div>
 </div>
 
-
-
-
 <div class="row" id="example_question">	
 	<div class="jumbotron">	
+		<p id="instruction">Step 1: Carefully read the following sentence:</p>
 		<p id="question">
 			<% i =0 %>		
 			<%@current_sentence.split(" ").length.times do %>
@@ -30,13 +29,13 @@
 			<%end%>
 		</p>
 		
-		<p id="instruction">Select all options that can complete the following sentence:</p>
+		<p id="instruction">Step 2: Select all options that can complete the following sentence based on what you read:</p>
 		
-		<p><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span>     <span style="font-size: 5px">.............................................................................................................................................................</span>    <span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
-		
+		<p><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span>     <span style="font-size: 5px">..................................................................................</span>    <span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
+	</div>	
 		<form action='/english-comprehension-practice/response' role="form" method="post">
 		  <div class="form-group">
-				<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical" data-toggle="buttons">
+				<div class="col-sm-8 col-sm-offset-2 btn-toolbar-vertical" data-toggle="buttons">
 					<% i=0 %>
 					<% @current_instance.answers.each do |opt|%>
 						<label class="btn btn-default btn-lg btn-block" id="checkboxes">
@@ -46,9 +45,9 @@
 					<% end %>
 				</div>
 
-				<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical">
+				<div class="col-sm-8 col-sm-offset-2 btn-toolbar-vertical">
 					<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
-					<button type="button" class="btn btn-success btn-lg btn-block" name="option" value="submit" data-toggle="modal" data-target="#myModal" >Submit</button>	
+					<button type="button" class="btn btn-primary btn-lg btn-block" name="option" value="submit" data-toggle="modal" data-target="#myModal" >Submit</button>	
 					<button type="button" class="btn btn-danger btn-lg btn-block" name="option" value="none" data-toggle="modal" data-target="#myModal">None of these</button>		
 				</div>
 		
@@ -92,14 +91,14 @@
 				</div>
 			</div>
 		</form>
-	</div>
+	<!-- </div> -->
 </div>
 
 
 <div class="row" id="middle_section">
 	<div class=jumbotron>
 		<h2>What is PraxEng ?</h2>
-		<p>PraxEng is a <strong>free</strong> website to practice English comprehension. It has <strong>no ads</strong> and never will. To learn how we make that possible <a href="/main/about">click here</a>.</p>
+		<p>PraxEng is a <strong>free</strong> website to practice English comprehension. It has <strong>no ads</strong> and never will. To learn how we make that possible <a href="/about">click here</a>.</p>
 	</div>
 	<div class="col-sm-10 col-sm-offset-1">
 	  <div class="col-sm-4">

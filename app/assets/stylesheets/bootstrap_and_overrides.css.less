@@ -27,9 +27,10 @@
 //
 // Example:
 // @link-color: #ff0000;
-// @link-color: @gray-light;
+@link-color: @gray-light;
 @navbar-height: 80px;
 @navbar-default-bg: rgba(255,255,255,0.95);
+@brand-primary: #038c8c;
 
 html,body {
    margin:0;
@@ -50,12 +51,17 @@ html,body {
 #body {
    // padding:10px;
    padding-bottom:80px;   /* Height of the footer */
+	 // margin-left: 0;
+	 // margin-right: 0;
+	 // padding-right: 0;
+	 // padding-left: 0;
+	 // border: solid;
 }
 #footer {
    position:absolute;
    bottom:0;
    width:100%;
-   height:70px;   /* Height of the footer */
+   height:85px;   /* Height of the footer */
    background:#6cf;
 }
 
@@ -126,19 +132,28 @@ body{
 }
 
 
-
+.jumbotron{
+	padding: 15px;
+	// border: solid;
+}
 
 
 @media (max-width: @screen-xs-max) {
 	
 	body{
 		.jumbotron p{
-			font-size: 14px;
+			font-size: 16px;
 		}
 	}	
 }
 
 #social a{
-	font-size: 24px;
+	font-size: 26px;
 }
 
+.btn{
+	border-radius: 0;
+}
+// * {
+//   .border-radius(0) !important;
+// }
