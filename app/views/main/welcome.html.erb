@@ -33,7 +33,7 @@
 		
 		<p><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span>     <span style="font-size: 5px">..................................................................................</span>    <span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
 	</div>	
-		<form action='/english-comprehension-practice/response' role="form" method="post">
+		<form action='/english-comprehension-practice/question' role="form" method="post">
 		  <div class="form-group">
 				<div class="col-sm-6 col-sm-offset-3 btn-toolbar-vertical" data-toggle="buttons">
 					<% i=0 %>

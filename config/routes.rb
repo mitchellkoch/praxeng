@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/' => "main#welcome"
   get '/about' => "main#about" 
   get '/english-comprehension-practice' => "main#task"
+  post '/english-comprehension-practice/question' => "main#create2"
   post '/english-comprehension-practice/response' => "main#create"
 
   root 'main#welcome'
