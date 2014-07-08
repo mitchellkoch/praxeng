@@ -1,6 +1,6 @@
 <div class="row" id="notif_row" >
 <div class="col-sm-8 col-sm-offset-2" id="notif" role="alert">
-	<p> <%=@message%> <a data-toggle="modal" data-target="#details">Click to view details</a></p>
+	<p> <%=@message%> <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#details">Click to view details</button></p>
 	<p>
 		<span class="label label-success">PROGRESS: <%= @num_questions %>/<%=@total_questions%></span>
 		
