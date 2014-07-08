@@ -8,5 +8,6 @@ class User < CouchRest::Model::Base
   
   design do
     view :by_name
+    view :by_src
   end 
 end
