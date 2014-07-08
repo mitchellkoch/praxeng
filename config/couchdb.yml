@@ -2,7 +2,7 @@ development: &development
   protocol: 'http'
   host: localhost
   port: 5984
-  prefix: testdb2
+  prefix: riat1
   suffix: development
   username: test	
   password:	test

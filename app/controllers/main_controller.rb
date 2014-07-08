@@ -2,8 +2,15 @@ class MainController < ApplicationController
   def welcome
     session["init"] = true
     user_count = User.by_name.key(session.id).count
+    src = request.env['HTTP_REFERER']
+          if src != nil
+                  uri = URI.parse src
+                  src = uri.host
+          else
+                  src = "Direct"
+          end
     if user_count == 0
-      @current_user = User.new(:name => session.id, :src => "Testing-v2")
+      @current_user = User.new(:name => session.id, :src => src)
       @current_user.save
     else
       @current_user = User.by_name.key(session.id).first
@@ -17,11 +24,11 @@ class MainController < ApplicationController
     if @num_questions = Annotation.by_user_id.key(@curr_user.id).count > 0
       @returning = true
     end
-    @current_instance = Question.get("ques-AIDA-YAGO2-DOC10054761.json")
+    @current_instance = Question.get("870adc31af6b9b8fa4cf82e0891e8c13")
     # @current_instance.update_attributes(:doc_name => "firstpage" )
     # @current_instance.save
     doc_name = @current_instance.doc_name
-    current_document = Document.get(doc_name+".json")
+    current_document = Document.by_doc_name.key(doc_name).first
     doc_text = current_document.text
     doc_sentences = doc_text.split("\n")
     arg = @current_instance.args[0]
@@ -40,12 +47,12 @@ class MainController < ApplicationController
     rand_num = rand(num_inst-0)
     @current_instance = Question.all.skip(rand_num).limit(1).first
     doc_name = @current_instance.doc_name
-    current_document = Document.get(doc_name+".json")
+    current_document = Document.by_doc_name.key(doc_name).first
     doc_text = current_document.text
     doc_sentences = doc_text.split("\n")
     arg = @current_instance.args[0]
     sent = arg["sent_idx"]
-    @current_sentence = doc_sentences[sent]
+    @current_sentence = doc_sentences[sent]   
     
     @total_questions = 8
   end
@@ -54,7 +61,7 @@ class MainController < ApplicationController
     @user = User.get(params[:user_id])
     @instance = Question.get(params[:instance_id])
     doc_name = @instance.doc_name
-    current_document = Document.get(doc_name+".json")
+    current_document = Document.by_doc_name.key(doc_name).first
     doc_text = current_document.text
     doc_sentences = doc_text.split("\n")
     arg = @instance.args[0]
@@ -82,7 +89,8 @@ class MainController < ApplicationController
       @user_resp["none"] = "You" 
     end
     @alert_type = "success"
-    @message = "Awesome! You are correct!"
+    messages = ["Awesome! You did good.", "Great! That was a tough question.", "You did good! Keep practicing.", "You are doing good!"]
+    @message = messages[Random.rand(messages.size)]
 
     ann = Annotation.by_question_id.key(@instance.id)
     
@@ -120,7 +128,7 @@ class MainController < ApplicationController
     rand_num = rand(num_inst-0)
     @current_instance = Question.all.skip(rand_num).limit(1).first
     doc_name = @current_instance.doc_name
-    current_document = Document.get(doc_name+".json")
+    current_document = Document.by_doc_name.key(doc_name).first
     doc_text = current_document.text
     doc_sentences = doc_text.split("\n")
     arg = @current_instance.args[0]

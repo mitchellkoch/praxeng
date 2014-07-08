@@ -5,7 +5,7 @@ class Document < CouchRest::Model::Base
   property :nel_annotations, []
   
   design do
-    view :by_name
+    view :by_doc_name
   end
 
 end
