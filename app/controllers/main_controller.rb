@@ -69,7 +69,7 @@ class MainController < ApplicationController
       @user_resp["none"] = "You" 
     end
     @alert_type = "success"
-    messages = ["Awesome! You did good.", "Great! That was a tough question.", "You did good! Keep practicing.", "You are doing good!"]
+    messages = ["Awesome! You did well.", "Great! That was a tough question.", "You did well! Keep practicing.", "You are doing well!"]
     @message = messages[Random.rand(messages.size)]
 
     ann = Annotation.by_question_id.key(@instance.id)
@@ -170,7 +170,7 @@ class MainController < ApplicationController
       @user_resp["none"] = "You" 
     end
     @alert_type = "success"
-    messages = ["Awesome! You did good.", "Great! That was a tough question.", "You did good! Keep practicing.", "You are doing good!"]
+    messages = ["Awesome! You did well.", "Great! That was a tough question.", "You did well! Keep practicing.", "You are doing well!"]
     @message = messages[Random.rand(messages.size)]
 
     ann = Annotation.by_question_id.key(@instance.id)
