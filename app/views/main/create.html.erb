@@ -1,10 +1,14 @@
 <div class="row" id="notif_row" >
 <div class="col-sm-8 col-sm-offset-2" id="notif" role="alert">
-	<p> <%=@message%> <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#details">Click to view details</button></p>
-	<p>
-		<span class="label label-success">PROGRESS: <%= @num_questions %>/<%=@total_questions%></span>
-		
-	</p>
+	<h3>
+		PROGRESS
+	</h3>
+	<div class="progress">
+	  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=@num_questions*100/@total_questions%>%;">
+	  </div>
+	</div>
+	<h4> <span style="color:#038c8c"><%=@message%></span> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#details">View Details</button></h4>
+	
 </div>
 </div>
 
@@ -76,8 +80,8 @@
 
 
 <div class="row" id="task_question">	
-	<div class="jumbotron">	
-		<p id="instruction">Step 1: Carefully read the following sentence:</p>
+	<div class="jumbotron col-lg-10 col-lg-offset-1">	
+		<p id="instruction"><strong>Step 1:</strong> Carefully read the following sentence:</p>
 		<p id="question">
 			<% i =0 %>		
 			<%@current_sentence.split(" ").length.times do %>
@@ -92,9 +96,9 @@
 			<%end%>
 		</p>
 		
-	<p id="instruction">Step 2: Select all options that can complete the following sentence based on what you read:</p>
+		<p id="instruction"><strong>Step 2:</strong> Fill in the blank to indicate what the sentence convey. Select all options you can:</p>
 		
-		<p><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span>     <span style="font-size: 5px">..................................................................................</span>    <span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
+		<p id="question"><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span> <u><span id="blank">Engcomprehenon</span></u> <span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
 	</div>	
 		<form action='/english-comprehension-practice/response' role="form" method="post">
 		  <div class="form-group">

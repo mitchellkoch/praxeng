@@ -9,25 +9,30 @@ $primary-color:#038c8c;
 }
 
 .jumbotron{
-	padding-bottom: 0;
-	margin-bottom: 0;
+		margin-bottom: 0;
+}
+
+.jumbotron h2{
+	text-align: center;
+//	padding-bottom: 0;
 }
 
 #top_section{
 	color: $primary-color;
 	background-color: #C8E8E4;
 //	height: 600px;
-padding: 20px;
+	padding: 20px;
+	text-align: center;
 }
 
 #instruction{
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
+	font-weight: 400;
 }
 
 #top_section h1, #top_section h2{
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 .btn-toolbar-vertical{
@@ -38,11 +43,12 @@ padding: 20px;
 #middle_section{
 	margin-top: 20px;
 	background-color: lighten(#000, 93.5%);
+	text-align: center;
 //	height: 600px;
 }
 
 .jumbotron{
-	text-align: center;
+	//text-align: center;
 	background-color:rgba(0,0,0,0);
 }
 
@@ -63,6 +69,10 @@ padding: 20px;
 	border: none;
 }
 
+#blank{
+	color: rgba(0,0,0,0);
+}
+
 .thumbnail img { 
 	min-height:50px; 
 	height:90px; 
@@ -72,9 +82,11 @@ padding: 20px;
 	font-size: 14px;
 }
 
-//#question{
-//	font-family: 'PT Serif', serif;
-//}
+#question{
+	padding: 16px;
+	background-color: #f1f1f1;
+	font-family: 'Roboto Slab', serif;
+}
 
 .heading{
 	font-size: 15px;
@@ -110,10 +122,11 @@ padding: 20px;
 
 #notif{
 	text-align: center;
-	border: 1px solid;
-	padding: 15px;
-	background-color: #C8E8E4;
-	margin-top: 20px;
+//	border: 1px solid;
+	padding: 2px;
+	//background-color: #C8E8E4;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .table{
