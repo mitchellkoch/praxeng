@@ -12,17 +12,20 @@ $primary-color:#038c8c;
 		margin-bottom: 0;
 }
 
+.jumbotron h1{
+	color: $primary-color;
+}
 .jumbotron h2{
 	text-align: center;
 //	padding-bottom: 0;
 }
 
 #top_section{
-	color: $primary-color;
-	background-color: #C8E8E4;
+//	color: $primary-color;
+//	background-color: #C8E8E4;
 //	height: 600px;
 //	padding: 20px;
-//margin: 0px;
+//	margin-bottom: 0px;
 	text-align: center;
 }
 

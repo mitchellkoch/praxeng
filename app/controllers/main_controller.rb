@@ -24,7 +24,7 @@ class MainController < ApplicationController
     if @num_questions = Annotation.by_user_id.key(@curr_user.id).count > 0
       @returning = true
     end
-    @current_instance = Question.get("870adc31af6b9b8fa4cf82e0891e8c13")
+    @current_instance = Question.get("d2a97000aa919823f84df2206a5e172e")
     # @current_instance.update_attributes(:doc_name => "firstpage" )
     # @current_instance.save
     doc_name = @current_instance.doc_name
@@ -104,7 +104,7 @@ class MainController < ApplicationController
     if @num_questions == 3
       @displayFbModal = true
     end
-    num_inst = 15#Question.all.count
+    num_inst = Question.all.count
     rand_num = rand(num_inst-0)
     @current_instance = Question.all.skip(rand_num).limit(1).first
     doc_name = @current_instance.doc_name
@@ -124,7 +124,7 @@ class MainController < ApplicationController
     #use session id
     @curr_user = User.by_name.key(session.id).first
     @num_questions = Annotation.by_user_id.key(@curr_user.id).count
-    num_inst = 15 #Question.all.count
+    num_inst = Question.all.count
     rand_num = rand(num_inst-0)
     @current_instance = Question.all.skip(rand_num).limit(1).first
     doc_name = @current_instance.doc_name
@@ -205,7 +205,7 @@ class MainController < ApplicationController
     if @num_questions == 3
       @displayFbModal = true
     end
-    num_inst = 15 #Question.all.count
+    num_inst = Question.all.count
     rand_num = rand(num_inst-0)
     @current_instance = Question.all.skip(rand_num).limit(1).first
     doc_name = @current_instance.doc_name
