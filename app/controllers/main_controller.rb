@@ -94,6 +94,7 @@ class MainController < ApplicationController
     #figure if correct
     @num_correct = params[:num_correct].to_i
     correct = 1
+   
     @instance.gold_answers.each do |opt|
       if @response.include? opt
         correct = correct * 1
@@ -110,6 +111,21 @@ class MainController < ApplicationController
         @alert_type = "alert-success"        
       end
     end
+
+    
+    if @instance.gold_answers.size() > @response.size()
+      subset = 1
+      response.each do |opt|
+        if !@instance.gold_answers.include? opt
+          subset = 0
+        end
+      end
+      if subset == 1
+        @alert_type = "alert-warning"
+        @msg = "You missed something..."
+      end
+    end
+
 
 
     #fetch a random question
@@ -303,6 +319,20 @@ class MainController < ApplicationController
         @alert_type = "alert-success"        
       end
     end
+
+   if @instance.gold_answers.size() > @response.size()
+      subset = 1
+      response.each do |opt|
+        if !@instance.gold_answers.include? opt
+          subset = 0
+        end
+      end
+      if subset == 1
+        @alert_type = "alert-warning"
+        @msg = "You missed something..."
+      end
+    end
+
     #fetch a random question
     @curr_user = @user
     num_inst = Question.all.count

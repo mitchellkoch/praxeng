@@ -87,7 +87,7 @@ $primary-color:#038c8c;
 	font-size: 14px;
 }
 
-#question{
+#question, #question_blank{
 	padding: 16px;
 	font-size: 120%;
 	font-family: 'Roboto Slab', serif;
@@ -170,3 +170,6 @@ text-align: left;
 	margin: 2px;
 }
 
+#question_blank{
+	text-align: center;
+}

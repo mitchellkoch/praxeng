@@ -24,7 +24,7 @@
 		
 				<p id="instruction"><strong>Step 2:</strong> Fill in the blank based on information conveyed in the sentence. Select all options.</p>
 		
-				<p id="question" class="well"><span id="arg1"> <%= @current_question.args[0]["text"]%><%= @current_question.args[0]["mention_text"]%> </span> <u><span id="blank">ssssssssssssssssss</span></u> <span id="arg2"> <%=@current_question.args[1]["text"] %><%= @current_question.args[1]["mention_text"]%></span></p>
+				<p id="question_blank" class="well"><span id="arg1"> <%= @current_question.args[0]["text"]%><%= @current_question.args[0]["mention_text"]%> </span> <u><span id="blank">ssssssssssssssssss</span></u> <span id="arg2"> <%=@current_question.args[1]["text"] %><%= @current_question.args[1]["mention_text"]%></span></p>
 
 				<form action='/english-comprehension' role="form" method="post">
 				  <div class="form-group">
