@@ -32,6 +32,7 @@ $primary-color:#038c8c;
 #instruction{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
+	margin: 0;
 }
 
 #top_section h1, #top_section h2{
@@ -157,14 +158,15 @@ text-align: left;
 	text-align: center;
 	padding-top: 5px;
 	padding-bottom: 2px;
-
+	margin-bottom: 5px;
 }
 
 .well{
-	margin-top: 0;
-	margin-bottom: 0;
+	margin: 1px;
+
 }
 
 .label{
 	margin: 2px;
 }
+
