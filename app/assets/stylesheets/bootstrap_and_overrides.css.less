@@ -28,7 +28,7 @@
 // Example:
 // @link-color: #ff0000;
 // @link-color: @gray;
-@navbar-height: 80px;
+@navbar-height: 50px;
 @navbar-default-bg: rgba(255,255,255,0.95);
 @brand-primary: #038c8c;
 
@@ -36,6 +36,7 @@ html,body {
    margin:0;
    padding:0;
    height:100%;
+	 // background-color: @gray-lighter;
 }
 
 #container {
@@ -43,25 +44,15 @@ html,body {
    position:relative;
 }
 
-#header {
-   background:#ff0;
-   padding:10px;
-}
-
 #body {
-   // padding:10px;
-   padding-bottom:80px;   /* Height of the footer */
-	 // margin-left: 0;
-	 // margin-right: 0;
-	 // padding-right: 0;
-	 // padding-left: 0;
-	 // border: solid;
+   padding-bottom:70px;   /* Height of the footer */
 }
 #footer {
    position:absolute;
    bottom:0;
    width:100%;
-   height:85px;   /* Height of the footer */
+	  border-top: solid 1px @gray-light ;
+   height: 10 px;   /* Height of the footer */
    background:#6cf;
 }
 
@@ -73,6 +64,7 @@ body{
 .navbar{
 	// margin-top: 10px;
 	margin: 0;
+		// background-color: @gray-lighter;
 	border: none;
 }
 .navbar-brand{
@@ -86,11 +78,10 @@ body{
 	//   width:100%;
 	// margin-left: auto;
 	// margin-right: auto;
-	padding-left: 5%;
 	padding-right: 5%;
 	background-color: @gray-lighter;
 	width: 100%;
-	border-top: solid 1px @gray-light; 
+	// border-top: solid 1px @gray-light;
 	// border: solid;
 	// margin: 0;
 }
@@ -150,7 +141,7 @@ body{
 }
 
 #social a{
-	font-size: 26px;
+	// font-size: px;
 }
 
 .btn{
@@ -160,6 +151,10 @@ body{
 //   .border-radius(0) !important;
 // }
 
-.btn-block{
-	max-width: 600px;
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
 }
+.navbar-brand {float:none;}

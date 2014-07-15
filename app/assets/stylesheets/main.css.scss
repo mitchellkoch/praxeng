@@ -46,7 +46,7 @@ $primary-color:#038c8c;
 
 #middle_section{
 	margin-top: 20px;
-	background-color: lighten(#000, 93.5%);
+//	background-color: lighten(#000, 93.5%);
 	text-align: center;
 //	height: 600px;
 }
@@ -67,7 +67,7 @@ $primary-color:#038c8c;
 }
 
 .thumbnail{
-	background-color: lighten(#000, 93.5%);
+//	background-color: lighten(#000, 93.5%);
 	text-align: center;
 //	background-color: white;
 	border: none;
@@ -88,7 +88,7 @@ $primary-color:#038c8c;
 
 #question{
 	padding: 16px;
-	background-color: #f1f1f1;
+	font-size: 120%;
 	font-family: 'Roboto Slab', serif;
 }
 
@@ -109,7 +109,7 @@ $primary-color:#038c8c;
  }
  
 .btn-toolbar{
-	 margin-top: 2em;
+	 margin-top: 1em;
 }
 
 #arg1{
@@ -120,17 +120,17 @@ $primary-color:#038c8c;
 	color: blue;
 }
 #notif_row{
-	margin-top: 5px;
+
 //	border: solid;
 }
 
 #notif{
 	text-align: center;
-//	border: 1px solid;
-	padding: 2px;
-	//background-color: #C8E8E4;
-	margin-top: 0px;
-	margin-bottom: 0px;
+	background-color: white;
+	border-radius: 10px;
+	padding: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .table{
@@ -143,4 +143,28 @@ $primary-color:#038c8c;
 
 #fbModal h4{
 	color: $primary-color;
+}
+
+#questionDiv{
+	padding-top: 10px;
+	border-radius: 10px;
+//	margin: 5px;
+text-align: left;
+//	background-color: lighten(#000, 97.5%);
+}
+
+.alert{
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 2px;
+
+}
+
+.well{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.label{
+	margin: 2px;
 }

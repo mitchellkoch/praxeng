@@ -1,8 +1,8 @@
 <div class="row" id="notif_row" >
-<div class="col-sm-8 col-sm-offset-2" id="notif" role="alert">
-	<h3>
+<div class="col-sm-6 col-sm-offset-3" id="notif" role="alert">
+	<h4>
 		PROGRESS
-	</h3>
+	</h4>
 	<div class="progress">
 	  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=@num_questions*100/@total_questions%>%;">
 	  </div>
@@ -80,29 +80,29 @@
 
 
 <div class="row" id="task_question">	
-	<div class="jumbotron col-lg-10 col-lg-offset-1">	
-		<p id="instruction"><strong>Step 1:</strong> Carefully read the following sentence:</p>
-		<p id="question">
-			<% i =0 %>		
-			<%@current_sentence.split(" ").length.times do %>
-				<% if (i>=@current_instance.args[0]["sent_tok_span"][0] && i<@current_instance.args[0]["sent_tok_span"][1]) %>
-					<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
-				<%elsif (i>=@current_instance.args[1]["sent_tok_span"][0] && i<@current_instance.args[1]["sent_tok_span"][1])%>
-						<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
-				<%else%>
-					<%= @current_sentence.split(" ")[i]%>
+	<div class="col-sm-6 col-sm-offset-3" id="questionDiv">
+			<p id="instruction"><strong>Step 1:</strong> Carefully read the following sentence:</p>
+			<p id="question" class="well">
+				<% i =0 %>		
+				<%@current_sentence.split(" ").length.times do %>
+					<% if (i>=@current_instance.args[0]["sent_tok_span"][0] && i<@current_instance.args[0]["sent_tok_span"][1]) %>
+						<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
+					<%elsif (i>=@current_instance.args[1]["sent_tok_span"][0] && i<@current_instance.args[1]["sent_tok_span"][1])%>
+							<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
+					<%else%>
+						<%= @current_sentence.split(" ")[i]%>
+					<%end%>
+					<% i+= 1 %>
 				<%end%>
-				<% i+= 1 %>
-			<%end%>
-		</p>
+			</p>
+	
+			<p id="instruction"><strong>Step 2:</strong> Fill in the blank based on information conveyed in the sentence. Select all options.</p>
 		
-		<p id="instruction"><strong>Step 2:</strong> Fill in the blank to indicate what the sentence convey. Select all options you can:</p>
-		
-		<p id="question"><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span> <u><span id="blank">Engcomprehenon</span></u> <span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
-	</div>	
+		<p id="question" class="well"><span id="arg1"> <%= @current_instance.args[0]["text"]%><%= @current_instance.args[0]["mention_text"]%> </span> <u><span id="blank">ssssssssssssssssss</span></u> <span id="arg2"> <%=@current_instance.args[1]["text"] %><%= @current_instance.args[1]["mention_text"]%></span></p>
+	
 		<form action='/english-comprehension-practice/response' role="form" method="post">
 		  <div class="form-group">
-				<div class="col-sm-8 col-sm-offset-2 btn-toolbar-vertical" data-toggle="buttons">
+				<div class="btn-toolbar-vertical" data-toggle="buttons">
 					<% i=0 %>
 					<% @current_instance.answers.each do |opt|%>
 						<label class="btn btn-default btn-lg btn-block" id="checkboxes">
@@ -112,7 +112,7 @@
 					<% end %>
 				</div>
 
-				<div class="col-sm-8 col-sm-offset-2 btn-toolbar-vertical">
+				<div class="btn-toolbar-vertical">
 					<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
 					<button type="submit" class="btn btn-primary btn-lg btn-block" name="option" value="submit" data-toggle="modal"  >Submit</button>	
 					<button type="submit" class="btn btn-danger btn-lg btn-block" name="option" value="none" data-toggle="modal" >None of these</button>		
@@ -123,8 +123,10 @@
 		
 			</div>
 		</form>
-	<!-- </div> -->
+	</div>	
 </div>
+
+
 
 <!-- Google Code for PraxEng Task Page Conversion Page -->
 <script type="text/javascript">
