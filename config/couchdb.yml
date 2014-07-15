@@ -15,7 +15,7 @@ production:
   protocol: 'https'
   host: localhost
   port: 5984
-  prefix: riataida
-  suffix: production
-  username: root
-  password: 123
+  prefix: goldclean
+  suffix: development
+  username: test
+  password: test
