@@ -2,18 +2,6 @@ class MainController < ApplicationController
   
   def welcome
     
-    #save user info
-    session["init"] = true
-    user_count = User.by_name.key(session.id).count
-    src = request.env['HTTP_REFERER']
-          if src != nil
-                  uri = URI.parse src
-                  src = uri.host
-          else
-                  src = "Direct"
-          end
-  
-    
     @question_num = 1
     @num_correct = 0
     #fetch a random question
@@ -31,21 +19,40 @@ class MainController < ApplicationController
     sent_num = arg["sent_idx"]
     @current_sentence = doc_sentences[sent_num]       
     
-    @curr_user = nil
-    @current_user = nil
-    if user_count == 0
-      @current_user = User.new(:name => session.id, :src => src, :ip_address=> request.remote_ip)
-      @current_user.save
-      @curr_user = @current_user
-    else
-      @current_user = User.by_name.key(session.id).first
-      @curr_user = @current_user
+    session["init"] = true
+    user_count = User.by_name.key(session.id).count
+    @session_id = session.id
+    if user_count != 0
       render "oldvisitor"
     end  
   end
 
   def question
-    @user = User.get(params[:user_id])
+    #save user info
+    session["init"] = true
+    session_id = params[:sessionId]
+    user_count = User.by_name.key(session_id).count
+    src = request.env['HTTP_REFERER']
+    if src != nil
+            uri = URI.parse src
+            src = uri.host
+    else
+            src = "Direct"
+    end
+    @curr_user = nil
+    @current_user = nil
+    if user_count == 0
+       @current_user = User.new(:name => session_id, :src => src, :ip_address=> request.remote_ip)
+       @current_user.save
+       @curr_user = @current_user
+     else
+       @current_user = User.by_name.key(session_id).first
+       @curr_user = @current_user
+     end  
+    
+    @user = @curr_user
+    
+     
     @instance = Question.get(params[:instance_id])
     doc_name = @instance.doc_name
     current_document = Document.by_doc_name.key(doc_name).first
@@ -118,7 +125,7 @@ class MainController < ApplicationController
         @alert_type = "alert-success"        
       end
     end
-
+    
     
     if @instance.gold_answers.size() > @response.size()
       subset = 1
