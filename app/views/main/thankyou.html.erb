@@ -18,6 +18,14 @@ document.getElementById('share').onclick = function() {
 	       {
 	         method: 'stream.publish',
 	         message: 'Message here.',
+					 attachment: {
+					            name: 'Name here',
+					            caption: 'Caption here.',
+					            description: (
+					              'description here'
+					            ),
+					            href: 'www.praxeng.com'
+					          },
 	         user_prompt_message: 'Personal message here'
 	       },
 	       function(response) {
