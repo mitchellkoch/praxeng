@@ -362,7 +362,7 @@ class MainController < ApplicationController
     sent_num = arg["sent_idx"]
     @current_sentence = doc_sentences[sent_num]  
      
-    if @question_num == 3
+    if @question_num == 11
       render "thankyou"
     end
 
