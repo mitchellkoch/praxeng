@@ -14,7 +14,7 @@ class MainController < ApplicationController
           end
     @current_user = nil
     if user_count == 0
-      @current_user = User.new(:name => session.id, :src => src, :ip_address: request.remote_ip)
+      @current_user = User.new(:name => session.id, :src => src, :ip_address=> request.remote_ip)
       @current_user.save
     else
       @current_user = User.by_name.key(session.id).first
