@@ -16,7 +16,7 @@
 document.getElementById('share').onclick = function() {
 	FB.ui({
 	  method: 'share',
-	  href: 'www.praxeng.com',
+	  message: 'I just scored <%=@num_correct%>/10 on PraxEng',
 	}, function(response){});
 }
 </script>
