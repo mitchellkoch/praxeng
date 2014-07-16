@@ -3,6 +3,7 @@ class User < CouchRest::Model::Base
   property :name, String #session id for now
   property :email, String
   property :password, String 
+  property :ip_address, String
   
   timestamps!
   
