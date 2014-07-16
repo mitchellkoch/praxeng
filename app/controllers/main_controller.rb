@@ -27,6 +27,7 @@ class MainController < ApplicationController
     num_inst = Question.all.count
     rand_num = rand(num_inst-0)
     @current_question = Question.all.skip(rand_num).limit(1).first
+    @question_id = @current_question.id
     #fetch doc for question
     doc_name = @current_question.doc_name
     current_document = Document.by_doc_name.key(doc_name).first
@@ -130,9 +131,16 @@ class MainController < ApplicationController
 
     #fetch a random question
     @curr_user = @user
-    num_inst = Question.all.count
-    rand_num = rand(num_inst-0)
-    @current_question = Question.all.skip(rand_num).limit(1).first
+    prev_question_id = params[:question_id]
+    @question_id = (prev_question_id.split("-")[1].to_i + 1)%10
+    if @question_id == 0
+      @question_id = 10
+    end
+    @question_id = "Question-"+@question_id.to_s
+    @current_question = Question.get(@question_id)
+    # num_inst = Question.all.count
+#     rand_num = rand(num_inst-0)
+#     @current_question = Question.all.skip(rand_num).limit(1).first
     #fetch doc for question
     doc_name = @current_question.doc_name
     current_document = Document.by_doc_name.key(doc_name).first
@@ -335,9 +343,16 @@ class MainController < ApplicationController
 
     #fetch a random question
     @curr_user = @user
-    num_inst = Question.all.count
-    rand_num = rand(num_inst-0)
-    @current_question = Question.all.skip(rand_num).limit(1).first
+    prev_question_id = params[:question_id]
+    @question_id = (prev_question_id.split("-")[1].to_i + 1)%10
+    if @question_id == 0
+      @question_id = 10
+    end
+    @question_id = "Question-"+@question_id.to_s
+    @current_question = Question.get(@question_id)
+    # num_inst = Question.all.count
+#     rand_num = rand(num_inst-0)
+#     @current_question = Question.all.skip(rand_num).limit(1).first
     #fetch doc for question
     doc_name = @current_question.doc_name
     current_document = Document.by_doc_name.key(doc_name).first
@@ -347,7 +362,7 @@ class MainController < ApplicationController
     sent_num = arg["sent_idx"]
     @current_sentence = doc_sentences[sent_num]  
      
-    if @question_num == 11
+    if @question_num == 3
       render "thankyou"
     end
 
