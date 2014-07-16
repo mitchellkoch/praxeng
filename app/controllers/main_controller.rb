@@ -12,18 +12,12 @@ class MainController < ApplicationController
           else
                   src = "Direct"
           end
-    @current_user = nil
-    if user_count == 0
-      @current_user = User.new(:name => session.id, :src => src, :ip_address=> request.remote_ip)
-      @current_user.save
-    else
-      @current_user = User.by_name.key(session.id).first
-    end    
+  
     
     @question_num = 1
     @num_correct = 0
     #fetch a random question
-    @curr_user = @current_user
+    
     num_inst = Question.all.count
     rand_num = rand(num_inst-0)
     @current_question = Question.all.skip(rand_num).limit(1).first
@@ -36,6 +30,18 @@ class MainController < ApplicationController
     arg = @current_question.args[0]
     sent_num = arg["sent_idx"]
     @current_sentence = doc_sentences[sent_num]       
+    
+    @curr_user = nil
+    @current_user = nil
+    if user_count == 0
+      @current_user = User.new(:name => session.id, :src => src, :ip_address=> request.remote_ip)
+      @current_user.save
+      @curr_user = @current_user
+    else
+      @current_user = User.by_name.key(session.id).first
+      @curr_user = @current_user
+      render "oldvisitor"
+    end  
   end
 
   def question
