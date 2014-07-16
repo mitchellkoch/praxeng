@@ -21,6 +21,7 @@ class MainController < ApplicationController
     
     session["init"] = true
     user_count = User.by_name.key(session.id).count
+    @referer = request.env['HTTP_REFERER']
     @session_id = session.id
     if user_count != 0
       render "oldvisitor"
@@ -32,7 +33,7 @@ class MainController < ApplicationController
     session["init"] = true
     session_id = params[:sessionId]
     user_count = User.by_name.key(session_id).count
-    src = request.env['HTTP_REFERER']
+    src = params[:referer]
     if src != nil
             uri = URI.parse src
             src = uri.host
