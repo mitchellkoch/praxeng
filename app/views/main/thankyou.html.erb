@@ -17,11 +17,10 @@ document.getElementById('share').onclick = function() {
 	FB.ui(
 	       {
 					 method: 'feed',
-					      name: 'Facebook Dialogs',
+					      name: 'I scored <%=@num_correct%>/10  on PraxEng!',
 					      link: 'www.praxeng.com',
-					      caption: 'Reference Documentation',
-					      description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
-					      message: 'Facebook Dialogs are easy!'
+					      caption: 'www.praxeng.com',
+					      description: 'Just practiced my English comprehension skills on PraxEng for free! Try it out!',
 	       },
 	       function(response) {
 	       }
