@@ -16,17 +16,12 @@
 document.getElementById('share').onclick = function() {
 	FB.ui(
 	       {
-	         method: 'stream.publish',
-	         message: 'Message here.',
-					 attachment: {
-					            name: 'Name here',
-					            caption: 'Caption here.',
-					            description: (
-					              'description here'
-					            ),
-					            href: 'www.praxeng.com'
-					          },
-	         user_prompt_message: 'Personal message here'
+					 method: 'feed',
+					      name: 'Facebook Dialogs',
+					      link: 'www.praxeng.com',
+					      caption: 'Reference Documentation',
+					      description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
+					      message: 'Facebook Dialogs are easy!'
 	       },
 	       function(response) {
 	       }
