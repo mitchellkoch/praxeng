@@ -17,10 +17,10 @@ document.getElementById('share').onclick = function() {
 	FB.ui(
 	       {
 					 method: 'feed',
-					      name: 'I scored <%=@num_correct%>/10  on PraxEng!',
+					      name: 'I just solved <%=@num_correct%> questions correctly on PraxEng',
 					      link: 'www.praxeng.com',
 					      caption: 'www.praxeng.com',
-					      description: 'Just practiced my English comprehension skills on PraxEng for free! Try it out!',
+					      description: 'PraxEng is so awesome, it lets me practice my English skills for free! Try it out!',
 	       },
 	       function(response) {
 	       }
