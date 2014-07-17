@@ -27,7 +27,11 @@ class MainController < ApplicationController
       render "oldvisitor"
     end  
   end
-
+  
+  def privacy
+    render "privacy"
+  end
+  
   def question
     #save user info
     session["init"] = true

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   get '/' => "main#welcome"
   post '/' => "main#welcome"
+  get '/privacy' => "main#privacy"
   get '/about' => "main#about" 
   get '/english-comprehension-practice' => "main#task"
   post '/english-comprehension' => "main#question"
