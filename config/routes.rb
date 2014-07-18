@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get '/new' => 'praxeng#firstPage'
   get '/' => "main#welcome"
   post '/' => "main#welcome"
   get '/privacy' => "main#privacy"
