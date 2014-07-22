@@ -1,0 +1,89 @@
+<div class="panel-heading">
+	<h1 class="panel-title light gray">Question #<%=@question_num%> <%=@session_id%></h1>
+</div>
+<div class="panel-body">
+	<p class="instruction bold"><strong>Step1:</strong> Read the following sentence carefully: </p>
+	<p class="question_sentence"><% i =0 %>		
+					<%@current_sentence.split(" ").length.times do %>
+						<% if (i>=@current_question.args[0]["sent_tok_span"][0] && i<@current_question.args[0]["sent_tok_span"][1]) %>
+							<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
+						<%elsif (i>=@current_question.args[1]["sent_tok_span"][0] && i<@current_question.args[1]["sent_tok_span"][1])%>
+								<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
+						<%else%>
+							<%= @current_sentence.split(" ")[i]%>
+						<%end%>
+						<% i+= 1 %>
+					<%end%>
+				</p>
+	<p class="instruction bold"><strong>Step2:</strong> Fill in the blank to create statements that directly follow from what you read. Select all options.</p>
+	<p class="blank_sentence"><span id="arg1"> <%= @current_question.args[0]["text"]%><%= @current_question.args[0]["mention_text"]%> </span> <u><span id="blank">ssssssssssssssssss</span></u> <span id="arg2"> <%=@current_question.args[1]["text"] %><%= @current_question.args[1]["mention_text"]%></span></p>
+	
+	<form action='/new2' role="form" method="post">
+	  <div class="form-group">	
+			
+			<div class="btn-toolbar-vertical" data-toggle="buttons">
+				<% i=0 %>
+				<% @current_question.answers.each do |opt|%>
+					<label class="btn btn-default btn-lg btn-block" id="checkboxes">
+						<input type="checkbox" name="response[r<%=i%>]" value="<%=opt%>" /><span id="option"><em><%= opt["relation_display_name"] %></em></span>
+					</label>
+					<% i=i+1 %>
+				<% end %>
+			</div>
+
+			<div class="btn-toolbar-vertical">
+				<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
+				<button type="button" class="btn btn-primary btn-lg btn-block" name="option" value="submit" data-toggle="modal" data-target="#myModal" >Submit</button>	
+				<button type="button" class="btn btn-danger btn-lg btn-block" name="option" value="none" data-toggle="modal" data-target="#myModal">None of these</button>		
+			</div>
+			
+			<input type="hidden" name="question_num" value= "<%= @question_num %>">
+			<input type="hidden" name="num_correct" value="<%= @num_correct %>">
+			<input type="hidden" name="referer" value= "<%= @referer%>">
+			<input type="hidden" name="ip_address" value= "<%= @ip_address %>">
+			<input type="hidden" name="question_id" value= "<%= @question_id %>">
+			
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							        <h4 class="modal-title" id="myModalLabel">PraxEng: Practice English Comprehension</h4>
+							      </div>
+							      <div class="modal-body">
+											<h4><em><small>Please read the following information carefully before proceeding:</small></em></h4>
+											<h4><small>Why we are doing this research: </small></h4>
+											<p>We are developing ways to measure people’s English comprehension skills, predict the meaning of
+			textual passages, and estimate the difficulty people have when trying to read and interpret the text.</p>
+											<h4><small>What you will have to do: </small></h4>
+											<p>You will be asked to read and understand an English sentence and then select the facts conveyed by that
+											sentence.</p>
+											<h4><small>Potential risks:</small></h4>
+											<p>There are no risks anticipated in taking part in this study, your participation is completely voluntary, and
+											you are free to leave at any time without penalty or loss of benefits to which you are otherwise entitled.</p>
+											<h4><small>Privacy: </small></h4>
+											Your responses will be kept anonymous. We do not collect any information that could be used to directly establish your identity.
+											<h4><small>To contact the researcher: </small></h4>
+											If you have questions or concerns about this research, please contact <a href="http://www.cs.washington.edu/people/faculty/weld/ target="_blank"">Prof. Daniel Weld</a>, Computer Science & Engineering, University of Washington, Box 352350, Seattle WA 98195-2350, <a href="mailto:weld@cs.washington.edu?Subject=[PraxEng]: " target="_top">weld@cs.washington.edu</a><br><br>
+
+											Whom to contact about your rights in this research, for questions, concerns, suggestions, or complaints
+											that are not being addressed by the researcher, or research-related harm: Human Subjects Division, 
+											University of Washington, Box 359470, Seattle, Washington 98195, Telephone: (206) 543-0098<br><br>
+
+											Please print or save a copy of this page for your records.<br><br>
+
+											<em>By clicking on accept you confirm that you are above the age of 18 and that you have read and understood 
+			this information and agree to take part in this research. Your participation is voluntary and you are free to 
+			leave the experiment at any time by simply closing the web browser.</em>
+    
+							      </div>
+							      <div class="modal-footer">
+							        <button type="submit" class="btn btn-default" data-dismiss="modal">Deny</button>
+							        <button type="submit" class="btn btn-primary">Accept</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+						</div>
+					</form>
+</div>

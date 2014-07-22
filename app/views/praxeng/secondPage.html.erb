@@ -1,0 +1,46 @@
+<div class="panel-heading">
+	<h1 class="panel-title light gray">Question #<%=@question_num%> <%=@session_id%></h1>
+</div>
+<div class="panel-body">
+	<p class="instruction bold"><strong>Step1:</strong> Read the following sentence carefully</p>
+	<p class="question_sentence"><% i =0 %>		
+					<%@current_sentence.split(" ").length.times do %>
+						<% if (i>=@current_question.args[0]["sent_tok_span"][0] && i<@current_question.args[0]["sent_tok_span"][1]) %>
+							<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
+						<%elsif (i>=@current_question.args[1]["sent_tok_span"][0] && i<@current_question.args[1]["sent_tok_span"][1])%>
+								<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
+						<%else%>
+							<%= @current_sentence.split(" ")[i]%>
+						<%end%>
+						<% i+= 1 %>
+					<%end%>
+				</p>
+	<p class="instruction bold"><strong>Step2:</strong> Fill in the blank</p>
+	<p class="blank_sentence"><span id="arg1"> <%= @current_question.args[0]["text"]%><%= @current_question.args[0]["mention_text"]%> </span> <u><span id="blank">ssssssssssssssssss</span></u> <span id="arg2"> <%=@current_question.args[1]["text"] %><%= @current_question.args[1]["mention_text"]%></span></p>
+	
+	<form action='/new3' role="form" method="post">
+	  <div class="form-group">	
+			
+			<div class="btn-toolbar-vertical" data-toggle="buttons">
+				<% i=0 %>
+				<% @current_question.answers.each do |opt|%>
+					<label class="btn btn-default btn-lg btn-block" id="checkboxes">
+						<input type="checkbox" name="response[r<%=i%>]" value="<%=opt%>" /><span id="option"><em><%= opt["relation_display_name"] %></em></span>
+					</label>
+					<% i=i+1 %>
+				<% end %>
+			</div>
+
+			<div class="btn-toolbar-vertical">
+				<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
+				<button type="submit" class="btn btn-primary btn-lg btn-block" name="option" value="submit">Submit</button>	
+				<button type="submit" class="btn btn-danger btn-lg btn-block" name="option" value="none">None of these</button>		
+			</div>
+			
+			<input type="hidden" name="question_num" value= "<%= @question_num %>">
+			<input type="hidden" name="num_correct" value="<%= @num_correct %>">
+			<input type="hidden" name="question_id" value= "<%= @question_id %>">
+				
+		</div>
+	</form>
+</div>

@@ -9,6 +9,7 @@ class Annotation < CouchRest::Model::Base
   design do
     view :by_question_id
     view :by_user_id
+    view :by_user_id_and_question_id
   end 
     
 end

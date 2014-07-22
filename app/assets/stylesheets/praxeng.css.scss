@@ -1,0 +1,116 @@
+// Place all the styles related to the praxeng controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	background-color: #C1DAD6;
+}
+
+.navbar{
+	background-color: white;
+	margin-bottom: 5px;
+}
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {	
+	float:none;
+	font-size: 50px;
+	font-family: "Euphoria Script", cursive;
+}
+
+#main_container{
+	margin-top: 0;
+}
+
+.col-sm-3, .col-sm-6{
+	padding: 0;
+}
+
+.panel, .well{
+	background-color: white;
+	margin: 5px;
+	text-align: center;
+}
+
+.well{
+	padding: 8px;
+}
+
+.panel-heading{
+	background-color: white  !important;
+}
+.table{
+	margin: 0;
+}
+.table-borderless td,
+.table-borderless th {
+	text-align: center;
+    border: 0 !important;
+}
+
+.table-borderless td{
+//	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	color: #038c8c;
+	font-size: 150%;
+}
+
+.table-borderless th{
+//	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	color: gray;
+	font-size: 80%;
+}
+
+.light{
+	font-weight: 300;
+}
+
+.bold{
+	font-weight: 600;
+}
+
+.instruction{
+	text-align: left;
+}
+
+.question_sentence{
+	font-family: 'Roboto Slab', sans-serif;
+	background-color:#F0F0F0 ;
+	border-radius: 5px;
+	padding: 6px;
+	text-align: left;
+}
+
+strong{
+	color: #038c8c;
+}
+
+.blank_sentence{
+	text-align: center;
+	font-family: 'Roboto Slab', sans-serif;
+	background-color:#F0F0F0 ;
+	padding: 6px;
+	border-radius: 5px;
+}
+
+#arg1{
+	color: red;
+}
+
+#arg2{
+	color: blue;
+}
+
+.gray{
+	color: gray;
+}
+
+.orange{
+	color: orange;
+}

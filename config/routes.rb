@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
-  get '/new' => 'praxeng#firstPage'
-  get '/' => "main#welcome"
-  post '/' => "main#welcome"
-  get '/privacy' => "main#privacy"
-  get '/about' => "main#about" 
+  get '/' => 'praxeng#firstPage'
+  post '/' => 'praxeng#firstPage'
+  post '/new2' => 'praxeng#secondPage'
+  post '/new3' => 'praxeng#thirdPage'
+  get '/privacy' => "praxeng#privacy"
+  get '/about' => "praxeng#about" 
+  
   get '/english-comprehension-practice' => "main#task"
   post '/english-comprehension' => "main#question"
   post '/english-comprehension-practice/question' => "main#create2"
