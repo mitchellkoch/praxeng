@@ -4,6 +4,7 @@ class User < CouchRest::Model::Base
   property :email, String
   property :password, String 
   property :ip_address, String
+  property :confirm_codes, []
   
   timestamps!
   
