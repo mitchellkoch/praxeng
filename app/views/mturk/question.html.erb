@@ -4,21 +4,21 @@
 <div class="panel-body">
 	<p class="instruction bold"><strong>Step1:</strong> Read the following sentence carefully</p>
 	<p class="question_sentence"><% i =0 %>		
-		<%@current_sentence.split(" ").length.times do %>
-			<% if (i>=@current_question.args[0]["sent_tok_span"][0] && i<@current_question.args[0]["sent_tok_span"][1]) %>
-				<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
-			<%elsif (i>=@current_question.args[1]["sent_tok_span"][0] && i<@current_question.args[1]["sent_tok_span"][1])%>
-					<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
-			<%else%>
-				<%= @current_sentence.split(" ")[i]%>
-			<%end%>
-			<% i+= 1 %>
-		<%end%>
-	</p>
+					<%@current_sentence.split(" ").length.times do %>
+						<% if (i>=@current_question.args[0]["sent_tok_span"][0] && i<@current_question.args[0]["sent_tok_span"][1]) %>
+							<span id="arg1"><%= @current_sentence.split(" ")[i]%></span>
+						<%elsif (i>=@current_question.args[1]["sent_tok_span"][0] && i<@current_question.args[1]["sent_tok_span"][1])%>
+								<span id="arg2"><%= @current_sentence.split(" ")[i]%></span>
+						<%else%>
+							<%= @current_sentence.split(" ")[i]%>
+						<%end%>
+						<% i+= 1 %>
+					<%end%>
+				</p>
 	<p class="instruction bold"><strong>Step2:</strong> Fill in the blank</p>
 	<p class="blank_sentence"><span id="arg1"> <%= @current_question.args[0]["text"]%><%= @current_question.args[0]["mention_text"]%> </span> <u><span id="blank">ssssssssssssssssss</span></u> <span id="arg2"> <%=@current_question.args[1]["text"] %><%= @current_question.args[1]["mention_text"]%></span></p>
 	
-	<form action='/new3' role="form" method="post">
+	<form action='/mturk/question' role="form" method="post">
 	  <div class="form-group">	
 			
 			<div class="btn-toolbar-vertical" data-toggle="buttons">
@@ -38,8 +38,8 @@
 			</div>
 			
 			<input type="hidden" name="question_num" value= "<%= @question_num %>">
-			<input type="hidden" name="num_correct" value="<%= @num_correct %>">
 			<input type="hidden" name="question_id" value= "<%= @question_id %>">
+			<input type="hidden" name="worker_id" value= "<%= @worker_id %>">
 				
 		</div>
 	</form>

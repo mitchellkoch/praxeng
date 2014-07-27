@@ -1,0 +1,63 @@
+<div class="panel-heading">
+	<h1 class="panel-title light gray">Example 2</h1>
+</div>
+<div class="panel-body">
+	<p class="instruction bold"><strong>Step1:</strong> Read the following sentence carefully</p>
+	<p class="question_sentence">
+		Lionel Andrés <span id="arg1">Messi</span> is an Argentine footballer who plays as a forward for Spanish club FC Barcelona and the <span id="arg2">Argentina</span> national team .
+	</p>
+	
+	<p class="instruction bold"><strong>Step2:</strong> Now directly based on what you read, complete the following sentence using all possible options below.
+	<p class="blank_sentence"><span id="arg1">Messi</span> <u><span id="blank">ssssssssssssssssss</span></u> <span id="arg2"> 	Argentina</span></p>
+	
+	<form action='/mturk/question' role="form" method="post">
+	  <div class="form-group">	
+			
+			<div class="btn-toolbar-vertical" data-toggle="buttons">
+
+					<label class="btn btn-default btn-lg btn-block" id="checkboxes">
+						<input type="checkbox" name="response[r1]" value="has nationality" /><span id="option"><em>has nationality</em></span>
+					</label>
+					<label class="btn btn-default btn-lg btn-block" id="checkboxes">
+						<input type="checkbox" name="response[r2]" value="plays for team" /><span id="option"><em>plays for team</em></span>
+					</label>
+					<label class="btn btn-default btn-lg btn-block" id="checkboxes">
+						<input type="checkbox" name="response[r3]" value="was born in" /><span id="option"><em>was born in</em></span>
+					</label>
+					<label class="btn btn-default btn-lg btn-block" id="checkboxes">
+						<input type="checkbox" name="response[r4]" value="died in" /><span id="option"><em>died in</em></span>
+					</label>
+
+			</div>
+
+			<div class="btn-toolbar-vertical">
+				<!-- <button type="button" class="btn btn-danger btn-lg">Skip</button> -->
+				<button type="submit" class="btn btn-primary btn-lg btn-block" name="option" value="submit">Submit</button>	
+				<button type="submit" class="btn btn-danger btn-lg btn-block" name="option" value="none">None of these</button>		
+			</div>
+			
+			<input type="hidden" name="worker_id" value= "<%= @worker_id %>">
+			<input type ="hidden" name="fromtut2" value="true">
+		</div>
+	</form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Example 1 Solution</h4>
+      </div>
+      <div class="modal-body">
+				<ul class="list-group">
+				  <li class="list-group-item">"Bill Clinton <span class="orange">has nationality</span> US" is correct because the sentence directly says he was president of US and hence he should be a national of US.</li>
+				  <li class="list-group-item">"Bill Clinton <span class="orange"> lived in</span> US" is correct because a president must live in the country he is president of.</li>
+				</ul>
+      
+				
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,16 +7,19 @@ Rails.application.routes.draw do
   get '/privacy' => "praxeng#privacy"
   get '/about' => "praxeng#about" 
   
+  post '/mturk/tutorial1' => "mturk#tutorialPage1"
+  post '/mturk/tutorial2' => "mturk#tutorialPage2"
+  get '/mturk' => "mturk#login"
+  post '/mturk/question' => "mturk#question"
+  post '/mturk/complete' => "mturk#complete"
+  
   get '/english-comprehension-practice' => "main#task"
   post '/english-comprehension' => "main#question"
   post '/english-comprehension-practice/question' => "main#create2"
   post '/english-comprehension-practice/response' => "main#create"
   # get 'english-comprehension-practice/thankyou' => "main#thankyou"
 
-  root 'main#welcome'
-  
-  get '*path' => redirect('/')
-  post '*path' => redirect('/')
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
