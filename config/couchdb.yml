@@ -2,8 +2,8 @@ development: &development
   protocol: 'http'
   host: localhost
   port: 5984
-  prefix: gold
-  suffix: clean3
+  prefix: praxeng
+  suffix: development
   username: test	
   password:	test
 

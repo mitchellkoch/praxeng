@@ -67,7 +67,7 @@ class MturkController < ApplicationController
     else
       user = User.get(@worker_id)
       annotation = newAnnotation(user, params[:question_id], params[:none], params[:response])
-      @message = "Reason in similar manner like examples for all questions."
+      @message = "Reason your responses in similar manner like \"Example 1\" for all questions."
       @question_num = params[:question_num].to_i + 1
     end
     
