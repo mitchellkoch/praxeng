@@ -58,7 +58,7 @@ class MturkController < ApplicationController
             codes.push(@complete_code)
             user.update_attributes(:confirm_codes => codes)
           end
-          @message = "Qualified! Welcome to the main task. You will be paid for all (legitimate) answers to questions from here onwards."
+          @message = "Qualified! Welcome to the main task. You need to solve 10 questions to get paid. We wont be able to pay for non-legitimate answers, so please reason out your responses like in \"Example 1\" in all questions."
         end
       else
         @message = "Oops you are wrong. Try again. Hint: You need to select two options."

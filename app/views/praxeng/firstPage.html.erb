@@ -1,5 +1,5 @@
 <div class="panel-heading">
-	<h1 class="panel-title light gray">Question #<%=@question_num%> <%=@session_id%></h1>
+	<h1 class="panel-title light gray">Question #<%=@question_num%> </h1>
 </div>
 <div class="panel-body">
 	<p class="instruction bold"><strong>Step1:</strong> Read the following sentence carefully: </p>
@@ -15,7 +15,7 @@
 						<% i+= 1 %>
 					<%end%>
 				</p>
-	<p class="instruction bold"><strong>Step2:</strong> Fill in the blank to create statements that directly follow from what you read. Select all options.</p>
+	<p class="instruction bold"><strong>Step 2:</strong> Fill in the blank based on information conveyed in the sentence. Select all options.</p>
 	<p class="blank_sentence"><span id="arg1"> <%= @current_question.args[0]["text"]%><%= @current_question.args[0]["mention_text"]%> </span> <u><span id="blank">ssssssssssssssssss</span></u> <span id="arg2"> <%=@current_question.args[1]["text"] %><%= @current_question.args[1]["mention_text"]%></span></p>
 	
 	<form action='/new2' role="form" method="post">
