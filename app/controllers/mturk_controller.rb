@@ -24,11 +24,11 @@ class MturkController < ApplicationController
       @message = "Attention! The answer is provided in Step 2. You still did not choose the correct options. If you fail again we will have to blacklist you."
       render "tutorialPage1"
     end
-    @message = "Great! Now solve this example and all future questions using similar reasoning."
+    @message = "Great! Now, solve this example and all future questions using similar reasoning."
   end
     
   def login
-    @message = "Enter your mechanical turk worker id to continue. We will use your id to track the work you did. Please ensure it is correct, otherwise we wont be able to pay you."
+    @message = "Enter your Amazon Mechanical Turk Worker ID to continue. We will use your ID to track the work you did. Please ensure it is correct, otherwise we won't be able to pay you."
     @question_num = 1
   end
   
@@ -45,7 +45,7 @@ class MturkController < ApplicationController
         end
         correct = checkAnswer(response, ["plays for team", "has nationality"])
         if correct == -1
-          @message = "Oops you are wrong. Try again. Hint: You need to select two options."
+          @message = "Oops, you are wrong. Try again. Hint: You need to select two options."
           render "tutorialPage2"
         else
           user = User.get(@worker_id)
@@ -58,21 +58,21 @@ class MturkController < ApplicationController
             codes.push(@complete_code)
             user.update_attributes(:confirm_codes => codes)
           end
-          @message = "Qualified! Welcome to the main task. You need to solve 10 questions to get paid. We wont be able to pay for non-legitimate answers, so please reason out your responses like in \"Example 1\" in all questions."
+          @message = "Qualified! Welcome to the main task. You need to solve 10 questions to get paid. We won't be able to pay for non-legitimate answers, so please reason out your responses (as in \"Example 1\") for all questions."
         end
       else
-        @message = "Oops you are wrong. Try again. Hint: You need to select two options."
+        @message = "Oops, you are wrong. Try again. Hint: You need to select two options."
         render "tutorialPage2"
       end
     else
       user = User.get(@worker_id)
       annotation = newAnnotation(user, params[:question_id], params[:none], params[:response])
-      @message = "Reason your responses in similar manner like \"Example 1\" for all questions."
+      @message = "Reason about your responses in a similar manner to \"Example 1\" for all questions."
       @question_num = params[:question_num].to_i + 1
     end
     
     if @question_num >= 11
-      @message = "Thankyou! Copy the confirmation code and number of questions done on mechanical turk form"
+      @message = "Thank you! Copy the confirmation code and the number of questions completed to the form on the Mechanical Turk page you came from."
       render "complete"
     end
     
